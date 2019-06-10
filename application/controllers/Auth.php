@@ -1,0 +1,82 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Auth extends CI_Controller {
+  public function __construct() {
+		parent::__construct();
+		$this->load->model('m_user', '', TRUE);
+  }
+  
+	public function index()
+	{
+    if ($this->session->userdata('dash_keu_id')){
+      redirect('pages','location');
+    }
+    else {
+      $this->load->view('auth/login');
+    }
+  }
+
+	public function register()
+	{
+		$this->load->view('auth/register');
+  }
+  
+  public function recover()
+  {
+    $this->load->view('auth/recover');
+  }
+
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    redirect('auth', 'location');
+  }
+
+  public function act_login()
+  {
+    // cek $_POST
+		if ($this->input->post()) {
+			$username = $this->input->post('username');
+			$pwd = sha1($this->input->post('password'));
+
+			$data = $this->m_user->get_user($username, $pwd);
+			if (!$data) {
+				$this->session->set_flashdata('login-gagal', "GAGAL");
+				redirect('auth', 'location');
+			} else {
+				$this->session->set_userdata('dash_keu_id', $data[0]['id']);
+				$this->session->set_userdata('dash_keu_username', $data[0]['username']);
+				$this->session->set_userdata('dash_keu_nama', $data[0]['nama']);
+				$this->session->set_userdata('dash_keu_email', $data[0]['email']);
+
+				redirect('pages', 'location');
+			}
+		}
+  }
+  
+  public function act_register()
+  {
+    if ($this->input->post()) {
+			$data['username'] = $this->input->post('username');
+			$data['nama'] = $this->input->post('nama');
+			$data['email'] = $this->input->post('email');
+			$data['password'] = sha1($this->input->post('password'));
+
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('username', 'password', 'is_unique[user.username]');
+			if ($this->form_validation->run()) {
+				$this->m_user->add_user($data);
+        redirect('auth', 'location');
+        $this->session->set_flashdata('register_ok', 'Success!');
+			} else {
+        redirect('auth/register', 'location');
+        $this->session->set_flashdata('register_fail', 'Failed! Username exist!');
+			}
+		}
+  }
+
+  public function sha() {
+    $this->load->view('sha');
+  }
+}
