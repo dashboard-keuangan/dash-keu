@@ -1,114 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/images/favicon.png">
-    <title>Register :: Dashboard Keuangan</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="<?=base_url()?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="<?=base_url()?>assets/css/colors/megna-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Registration Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="<?=base_url()?>"><b>Admin</b>LTE</a>
+  </div>
 
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(<?=base_url()?>assets/images/background/login-register.jpg);">
-      <div class="login-box card">
-        <div class="card-body">
-          <form class="form-horizontal form-material" id="loginform" action="<?=base_url('auth/act_register')?>" method="POST">
-            <a href="javascript:void(0)" class="text-center db"><img src="<?=base_url()?>assets/images/logo-icon.png" alt="Home" /><br/><img src="<?=base_url()?>assets/images/logo-text.png" alt="Home" /></a> 
-            <h3 class="box-title m-t-40 m-b-0">Register Now</h3><small>Create your account and enjoy</small> 
-            <div class="form-group m-t-20">
-              <div class="col-xs-12">
-                <input class="form-control" type="text" required="" placeholder="Username" name="username">
-              </div>
-            </div>
-            <div class="form-group ">
-              <div class="col-xs-12">
-                <input class="form-control" type="text" required="" placeholder="Nama" name="nama">
-              </div>
-            </div>
-            <div class="form-group ">
-              <div class="col-xs-12">
-                <input class="form-control" type="email" required="" placeholder="Email" name="email">
-              </div>
-            </div>
-            <div class="form-group ">
-              <div class="col-xs-12">
-                <input class="form-control" type="password" required="" placeholder="Password" name="password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-md-12">
-                <div class="checkbox checkbox-primary p-t-0">
-                  <input id="checkbox-signup" type="checkbox" required>
-                  <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group text-center m-t-20">
-              <div class="col-xs-12">
-                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
-              </div>
-            </div>
-            <div class="form-group m-b-0">
-              <div class="col-sm-12 text-center">
-                <p>Already have an account? <a href="<?=base_url('auth')?>" class="text-info m-l-5"><b>Sign In</b></a></p>
-              </div>
-            </div>
-          </form>
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
+      <!-- Alert START -->
+      <?php if ($this->session->userdata('register_fail')) {?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Registrasi gagal!</strong> Username telah ada.
         </div>
-      </div>
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?=base_url()?>assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?=base_url()?>assets/js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="<?=base_url()?>assets/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?=base_url()?>assets/js/sidebarmenu.js"></script>
-    <!--stickey kit -->
-    <script src="<?=base_url()?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="<?=base_url()?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?=base_url()?>assets/js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="<?=base_url()?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-</body>
+      <?php } ?>
+      <!-- Alert END -->
+      <form action="<?=base_url('auth/act_register')?>" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
+          <div class="input-group-append input-group-text">
+              <span class="fas fa-user"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="nama" class="form-control" placeholder="Full Name" required>
+          <div class="input-group-append input-group-text">
+              <span class="fas fa-user"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <div class="input-group-append input-group-text">
+              <span class="fas fa-lock"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+               I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
+      <a href="<?=base_url('auth')?>" class="text-center">Already have an account</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

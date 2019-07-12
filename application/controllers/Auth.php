@@ -48,7 +48,8 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('dash_keu_id', $data[0]['id']);
 				$this->session->set_userdata('dash_keu_username', $data[0]['username']);
 				$this->session->set_userdata('dash_keu_nama', $data[0]['nama']);
-				$this->session->set_userdata('dash_keu_email', $data[0]['email']);
+        $this->session->set_userdata('dash_keu_email', $data[0]['email']);
+        $this->session->set_userdata('dash_keu_alamat', $data[0]['alamat']);
 
 				redirect('pages', 'location');
 			}
@@ -58,20 +59,19 @@ class Auth extends CI_Controller {
   public function act_register()
   {
     if ($this->input->post()) {
-			$data['username'] = $this->input->post('username');
-			$data['nama'] = $this->input->post('nama');
-			$data['email'] = $this->input->post('email');
+      $data['username'] = $this->input->post('username');
+      $data['nama'] = $this->input->post('nama');
 			$data['password'] = sha1($this->input->post('password'));
 
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('username', 'password', 'is_unique[user.username]');
 			if ($this->form_validation->run()) {
-				$this->m_user->add_user($data);
-        redirect('auth', 'location');
+        $this->m_user->add_user($data);
         $this->session->set_flashdata('register_ok', 'Success!');
+        redirect('auth', 'location');
 			} else {
-        redirect('auth/register', 'location');
         $this->session->set_flashdata('register_fail', 'Failed! Username exist!');
+        redirect('auth/register', 'location');
 			}
 		}
   }

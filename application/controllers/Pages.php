@@ -9,31 +9,45 @@ class Pages extends CI_Controller {
 		}
 	  }
 	  
-	public function index()
-	{
-		$data['title'] = 'Dashboard Keuangan';
-		$this->load->view('partial/header', $data);
+	public function index()	{
+		//redirect('pages/dashboard', 'location');
+		$this->dashboard();
+	}
+
+	public function dashboard() {
 		$this->load->view('index');
-		$this->load->view('partial/footer');
 	}
 
-	public function dashboard()
-	{
-		$this->index();
+	public function team() {
+		$this->load->view('team');
 	}
 
-	public function profile()
-	{
+	public function profile() {
 		$this->load->model('m_user', '', TRUE);
-		$data['title'] = 'Profile :: Dashboard Keuangan';
 		$id = $this->session->userdata('dash_keu_id');
 		$data['profil'] = $this->m_user->get_user_by_id($id);
-		$this->load->view('partial/header', $data);
 		$this->load->view('profile', $data);
-		$this->load->view('partial/footer');
 	}
 
 	public function act_update_prof() {
-		redirect('pages','location');
+		$this->load->model('m_user', '', TRUE);
+
+		$id = $this->session->userdata('dash_keu_id');
+		$data['username'] = $this->input->post('username');
+		$data['nama'] = $this->input->post('nama');
+		$data['email'] = $this->input->post('email');
+		$data['jenis_kelamin'] = $this->input->post('jenis_kelamin');
+		$data['no_telp'] = $this->input->post('no_telp');
+		$data['alamat'] = $this->input->post('alamat');
+		$data['bio'] = $this->input->post('bio');
+
+		$this->m_user->update_user($data, $id);
+		$this->session->set_flashdata('update_berhasil', TRUE);
+		$this->session->set_userdata('dash_keu_nama', $data['nama']);
+		redirect('/', 'location');
+	}
+
+	public function sha() {
+		$this->load->view('sha');
 	}
 }

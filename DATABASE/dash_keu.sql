@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2019 at 03:01 AM
+-- Generation Time: Jul 11, 2019 at 05:41 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -46,11 +46,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `bio`) VALUES
 (101, 'admin', 'Ilham Ibnu Purnomo', 'inupurnomo@outlook.com', 'L', '085723688655', 'Dayeuh Kolot', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum recusandae ut aperiam velit quidem facere voluptatibus corrupti earum nihil consequatur, totam, dicta illo minus similique.'),
-(102, 'adis', 'Adisca Naufal R', 'adisca@gmail.com', 'L', '085852586546', 'Bekasi', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', ''),
-(103, 'supplier', 'Ilham Ibnu Purnomo', 'social.inupurnomo@gmail.com', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', ''),
-(104, 'karyawanPur', 'Adisca Naufal R', 'iptutorplus@gmail.com', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', ''),
-(105, 'phusink', 'Ilham Ibnu Purnomo', 'inuofficial@gmail.com', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', ''),
-(106, 'test', 'Adisca Naufal R', 'inuofficial@gmail.com', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '');
+(105, 'adiscanr', 'Adisca Naufal R', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '');
 
 --
 -- Indexes for dumped tables
@@ -70,7 +66,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

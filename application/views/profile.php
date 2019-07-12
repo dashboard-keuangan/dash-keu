@@ -1,322 +1,885 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | User Profile</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Profile</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
-                        </ol>
-                    </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        <div class="d-flex m-t-10 justify-content-end">
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>THIS MONTH</small></h6>
-                                    <h4 class="m-t-0 text-info">$58,356</h4></div>
-                                <div class="spark-chart">
-                                    <div id="monthchart"></div>
-                                </div>
-                            </div>
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>LAST MONTH</small></h6>
-                                    <h4 class="m-t-0 text-primary">$48,356</h4></div>
-                                <div class="spark-chart">
-                                    <div id="lastmonthchart"></div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <center class="m-t-30"> <img src="<?=base_url()?>assets/images/users/prof.png" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Ilham Ibnu Purnomo</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
-                                </center>
-                            </div>
-                            <div>
-                                <hr> </div>
-                            <div class="card-body"> <small class="text-muted">Email address </small>
-                                <h6>inupurnomo@outlook.com</h6> <small class="text-muted p-t-30 db">Phone</small>
-                                <h6>+62 85723688655</h6> <small class="text-muted p-t-30 db">Address</small>
-                                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-                                <div class="map-box">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div> <small class="text-muted p-t-30 db">Social Profile</small>
-                                <br/>
-                                <button class="btn btn-circle btn-secondary"><a href="https://www.facebook.com/inupurnomo" target="_blank"><i class="fa fa-facebook"></i></a></button>
-                                <button class="btn btn-circle btn-secondary"><a href="https://www.twitter.com/inupurnomo" target="_blank"><i class="fa fa-twitter"></i></a></button>
-                                <button class="btn btn-circle btn-secondary"><a href="https://www.youtube.com/inupurnomo" target="_blank"><i class="fa fa-youtube"></i></a></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="home" role="tabpanel">
-                                    <div class="card-body">
-                                        <div class="profiletimeline">
-                                            <div class="sl-item">
-                                                <div class="sl-left"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> </div>
-                                                <div class="sl-right">
-                                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                                        <p>assign a new task <a href="#"> Design weblayout</a></p>
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img1.jpg" class="img-responsive radius" /></div>
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img2.jpg" class="img-responsive radius" /></div>
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img3.jpg" class="img-responsive radius" /></div>
-                                                            <div class="col-lg-3 col-md-6 m-b-20"><img src="../assets/images/big/img4.jpg" class="img-responsive radius" /></div>
-                                                        </div>
-                                                        <div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="sl-item">
-                                                <div class="sl-left"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle" /> </div>
-                                                <div class="sl-right">
-                                                    <div> <a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                                        <div class="m-t-20 row">
-                                                            <div class="col-md-3 col-xs-12"><img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius" /></div>
-                                                            <div class="col-md-9 col-xs-12">
-                                                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p> <a href="#" class="btn btn-success"> Design weblayout</a></div>
-                                                        </div>
-                                                        <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="sl-item">
-                                                <div class="sl-left"> <img src="../assets/images/users/3.jpg" alt="user" class="img-circle" /> </div>
-                                                <div class="sl-right">
-                                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                                        <p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
-                                                    </div>
-                                                    <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="sl-item">
-                                                <div class="sl-left"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle" /> </div>
-                                                <div class="sl-right">
-                                                    <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
-                                                        <blockquote class="m-t-10">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                                        </blockquote>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--second tab-->
-                                <div class="tab-pane" id="profile" role="tabpanel">
-                                <?php foreach ($profil as $prof) { ?>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
-                                                <br>
-                                                <p class="text-muted"><?=$prof['nama']; ?></p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
-                                                <br>
-                                                <p class="text-muted"><?=$prof['no_telp']; ?></p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
-                                                <br>
-                                                <p class="text-muted"><?=$prof['email']; ?></p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
-                                                <br>
-                                                <p class="text-muted"><?=$prof['alamat']; ?></p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <p class="m-t-30"><?=$prof['bio']; ?></p>
-                                        <h4 class="font-medium m-t-30">Skill Set</h4>
-                                        <hr>
-                                        <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                </div>
-                                <div class="tab-pane" id="settings" role="tabpanel">
-                                <?php foreach ($profil as $prof) { ?>
-                                    <div class="card-body">
-                                        <form class="form-horizontal form-material" action="<?=base_url('pages/act_update_prof')?>" method="POST">
-                                            <div class="form-group">
-                                                <label class="col-md-12">Username</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$prof['username']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nama" class="col-md-12">Full Name</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$prof['nama']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-md-12">Email</label>
-                                                <div class="col-md-12">
-                                                    <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$prof['email']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-12">Jenis Kelamin</label>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control form-control-line" name="jenis_kelamin">
-                                                        <option value="L" <?php if ($prof['jenis_kelamin']=="L") { echo "selected='yes'"; } ?>>L</option>
-                                                        <option value="P" <?php if ($prof['jenis_kelamin']=="P") { echo "selected='yes'"; } ?>>P</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Phone No</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control form-control-line" value="<?=$prof['no_telp']; ?>" name="no_telp">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Domisili</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control form-control-line" value="<?=$prof['alamat']; ?>" name="alamat">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Bio</label>
-                                                <div class="col-md-12">
-                                                    <textarea rows="5" class="form-control form-control-line" name="bio"><?=$prof['bio']; ?></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <button class="btn btn-success" type="submit">Update Profile</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="http://[::1]/keung/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="<?=base_url();?>assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+            class="fas fa-th-large"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="<?=base_url();?>" class="brand-link">
+      <img src="<?=base_url();?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Baramij</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview user-panel">
+            <a href="#" class="nav-link">
+              <img src="<?=base_url();?>assets/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+              <p>
+                <?=$this->session->userdata('dash_keu_nama')?>
+              </p>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=base_url('pages/profile');?>" class="nav-link">
+                  <i class="far fa fa-user"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa fa-gavel"></i>
+                  <p>Setting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('logout');?>" class="nav-link">
+                  <i class="far fa fa-power-off"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <hr/>
+          <li class="nav-item has-treeview">
+            <a href="<?=base_url();?>" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Layout Options
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/layout/top-nav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Top Navigation</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/boxed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Boxed</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed Navbar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-footer.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed Footer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Collapsed Sidebar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Charts
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ChartJS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Flot</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/inline.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inline</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                UI Elements
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/UI/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/icons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Icons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/buttons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Buttons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/sliders.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sliders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/modals.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Modals & Alerts</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Forms
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/advanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Advanced Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/editors.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editors</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tables
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/tables/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Simple Tables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/data.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Tables</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-item">
+            <a href="pages/calendar.html" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Calendar
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mailbox
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/compose.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Pages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/profile.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/login.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Login</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/register.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/lockscreen.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Extras
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/404.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/500.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/blank.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="starter.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Legacy User Menu</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="<?=base_url();?>assets/dist/img/avatar5.png"
+                       alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center"><?=$this->session->userdata('dash_keu_nama');?></h3>
+
+                <p class="text-muted text-center">Software Engineer</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Followers</b> <a class="float-right">1,322</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Following</b> <a class="float-right">543</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Friends</b> <a class="float-right">13,287</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">About Me</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+                <p class="text-muted">
+                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                <p class="text-muted"><?=$this->session->userdata('dash_keu_alamat');?></p>
+
+                <hr>
+
+                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                <p class="text-muted">
+                  <span class="tag tag-danger">UI Design</span>
+                  <span class="tag tag-success">Coding</span>
+                  <span class="tag tag-info">Javascript</span>
+                  <span class="tag tag-warning">PHP</span>
+                  <span class="tag tag-primary">Node.js</span>
+                </p>
+
+                <hr>
+
+                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#profile" data-toggle="tab">Profile</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="activity">
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Shared publicly - 7:30 PM today</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore the hate as they create awesome
+                        tools to help create filler text for everyone from bacon lovers
+                        to Charlie Sheen fans.
+                      </p>
+
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+
+                    <!-- Post -->
+                    <div class="post clearfix">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="<?=base_url();?>assets/dist/img/user7-128x128.jpg" alt="User Image">
+                        <span class="username">
+                          <a href="#">Sarah Ross</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Sent you a message - 3 days ago</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore the hate as they create awesome
+                        tools to help create filler text for everyone from bacon lovers
+                        to Charlie Sheen fans.
+                      </p>
+
+                      <form class="form-horizontal">
+                        <div class="input-group input-group-sm mb-0">
+                          <input class="form-control form-control-sm" placeholder="Response">
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-danger">Send</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /.post -->
+
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="<?=base_url();?>assets/dist/img/user6-128x128.jpg" alt="User Image">
+                        <span class="username">
+                          <a href="#">Adam Jones</a>
+                          <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                        </span>
+                        <span class="description">Posted 5 photos - 5 days ago</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <div class="row mb-3">
+                        <div class="col-sm-6">
+                          <img class="img-fluid" src="<?=base_url();?>assets/dist/img/photo1.png" alt="Photo">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <img class="img-fluid mb-3" src="<?=base_url();?>assets/dist/img/photo2.png" alt="Photo">
+                              <img class="img-fluid" src="<?=base_url();?>assets/dist/img/photo3.jpg" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                              <img class="img-fluid mb-3" src="<?=base_url();?>assets/dist/img/photo4.jpg" alt="Photo">
+                              <img class="img-fluid" src="<?=base_url();?>assets/dist/img/photo1.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="profile">
+                    <!-- The timeline -->
+                    <?php foreach ($profil as $prof) { ?>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
+                                <br>
+                                <p class="text-muted"><?=$prof['nama']; ?></p>
+                            </div>
+                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
+                                <br>
+                                <p class="text-muted"><?=$prof['no_telp']; ?></p>
+                            </div>
+                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
+                                <br>
+                                <p class="text-muted"><?=$prof['email']; ?></p>
+                            </div>
+                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
+                                <br>
+                                <p class="text-muted"><?=$prof['alamat']; ?></p>
+                            </div>
+                        </div>
+                        <div class="post clearfix"></div>
+                        <h4 class="font-medium m-t-30">Bio</h4>
+                        <p class="m-t-30"><?=$prof['bio']; ?></p>
+                        <div class="post clearfix"></div>
+                        <h4 class="font-medium m-t-30">Skill Set</h4>
+                        <hr>
+                        <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                        </div>
+                        <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                        </div>
+                        <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                        </div>
+                        <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="settings">
+                    <?php foreach ($profil as $prof) { ?>
+                    <div class="card-body">
+                        <form class="form-horizontal form-material" action="<?=base_url('pages/act_update_prof')?>" method="POST">
+                            <div class="form-group">
+                                <label class="col-md-12">ID</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line" name="id" id="id" value="<?=$prof['id']; ?>" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Username</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$prof['username']; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama" class="col-md-12">Full Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$prof['nama']; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-md-12">Email</label>
+                                <div class="col-md-12">
+                                    <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$prof['email']; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12">Jenis Kelamin</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control form-control-line" name="jenis_kelamin">
+                                        <option value="L" <?php if ($prof['jenis_kelamin']=="L") { echo "selected='yes'"; } ?>>L</option>
+                                        <option value="P" <?php if ($prof['jenis_kelamin']=="P") { echo "selected='yes'"; } ?>>P</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Phone No</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line" value="<?=$prof['no_telp']; ?>" name="no_telp">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Domisili</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control form-control-line" value="<?=$prof['alamat']; ?>" name="alamat">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Bio</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" class="form-control form-control-line" name="bio"><?=$prof['bio']; ?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success" type="submit">Update Profile</button>
+                                    <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <?php } ?>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-beta.1
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="<?=base_url();?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?=base_url();?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="<?=base_url();?>assets/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="<?=base_url();?>assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?=base_url();?>assets/dist/js/demo.js"></script>
+</body>
+</html>
