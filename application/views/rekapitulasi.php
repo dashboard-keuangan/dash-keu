@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Teams :: DashKeu</title>
+  <title>Blank :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -40,7 +41,7 @@ to get the desired effect
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?=base_url()?>" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -175,6 +176,7 @@ to get the desired effect
               <img src="<?=base_url();?>assets/dist/img/avatar5.png" class="nav-icon img-circle elevation-2" alt="User Image">
               <p>
                 <?=$this->session->userdata('dash_keu_nama')?>
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -187,7 +189,7 @@ to get the desired effect
               <li class="nav-item">
                 <a href="<?=base_url('pages/settings')?>" class="nav-link">
                   <i class="far fa fa-gavel nav-icon"></i>
-                  <p>Settings</p>
+                  <p>Setting</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -199,15 +201,15 @@ to get the desired effect
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url();?>" class="nav-link active">
+            <a href="<?=base_url();?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Keuangan
@@ -228,7 +230,7 @@ to get the desired effect
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('pages/rekapitulasi')?>" class="nav-link">
+                <a href="<?=base_url('pages/rekapitulasi')?>" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekapitulasi</p>
                 </a>
@@ -245,7 +247,7 @@ to get the desired effect
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('pages/lap_harian')?>" class="nav-link active">
+                <a href="<?=base_url('pages/lap_harian')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Harian</p>
                 </a>
@@ -323,12 +325,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Teams</h1>
+            <h1 class="m-0 text-dark">Rekapitulasi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Teams</li>
+              <li class="breadcrumb-item active">Rekapitulasi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -339,241 +341,13 @@ to get the desired effect
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Ilham Ibnu Purnomo</h3>
-                <h5 class="widget-user-desc">Founder & CEO</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
+        <div class="row">
+          <div class="col">
+
           </div>
           <!-- /.col -->
-          <!-- / Team 1 -->
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Ahmad Rizky Prayogi</h3>
-                <h5 class="widget-user-desc">Founder & CEO</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-          <!-- Team 2 -->
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Adisca Naufal R</h3>
-                <h5 class="widget-user-desc">Founder & CEO</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-          <!-- Team 3 -->
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Bilal Tawaqal</h3>
-                <h5 class="widget-user-desc">Web Designer</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-          <!-- Team 4 -->
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Johan Antonius S</h3>
-                <h5 class="widget-user-desc">Web Designer</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-          <!-- Team 5 -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- / Widget -->
       </div>
       <!-- /.container-fluid -->
     </div>
@@ -605,13 +379,11 @@ to get the desired effect
 <!-- Bootstrap -->
 <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?=base_url()?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE -->
 <script src="<?=base_url()?>assets/dist/js/adminlte.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="<?=base_url()?>assets/plugins/chart.js/Chart.min.js"></script>
 <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
-<script src="<?=base_url()?>assets/dist/js/pages/dashboard3.js"></script>
 </body>
 </html>

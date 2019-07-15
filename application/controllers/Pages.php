@@ -40,6 +40,9 @@ class Pages extends CI_Controller {
 		$data['no_telp'] = $this->input->post('no_telp');
 		$data['alamat'] = $this->input->post('alamat');
 		$data['bio'] = $this->input->post('bio');
+		$data['skill'] = $this->input->post('skill');
+		$data['education'] = $this->input->post('education');
+		$data['notes'] = $this->input->post('notes');
 
 		$this->m_user->update_user($data, $id);
 		$this->session->set_flashdata('update_berhasil', TRUE);
@@ -83,5 +86,17 @@ class Pages extends CI_Controller {
 
 	public function blank() {
 		$this->load->view('blank');
+	}
+
+	public function pemasukan() {
+		$this->load->view('pemasukan');
+	}
+
+	public function pengeluaran() {
+		$this->load->view('pengeluaran');
+	}
+
+	public function rekapitulasi() {
+		$this->load->view('rekapitulasi');
 	}
 }

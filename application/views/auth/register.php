@@ -23,7 +23,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="<?=base_url()?>"><b>Admin</b>LTE</a>
+    <a href="<?=base_url()?>"><b>Dash</b>Keu</a>
   </div>
 
   <div class="card">
@@ -31,11 +31,17 @@
       <p class="login-box-msg">Register a new membership</p>
       <!-- Alert START -->
       <?php if ($this->session->userdata('register_fail')) {?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <strong>Registrasi gagal!</strong> Username telah ada.
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i> Failed!</h5>
+          Register gagal! Username telah ada.
+        </div>
+      <?php } ?>
+      <?php if ($this->session->userdata('register_fail_p')) {?>
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i> Failed!</h5>
+          Register gagal! Password tidak sama.
         </div>
       <?php } ?>
       <!-- Alert END -->
@@ -43,27 +49,33 @@
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username" required>
           <div class="input-group-append input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="far fa-user"></span>
           </div>
         </div>
         <div class="input-group mb-3">
           <input type="text" name="nama" class="form-control" placeholder="Full Name" required>
           <div class="input-group-append input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-signature"></span>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append input-group-text">
-              <span class="fas fa-lock"></span>
+          <span toggle="#password-field" class="far fa-eye-slash toggle-password" title="Show/hide password"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input id="password-field-v" type="password" name="password-v" class="form-control" placeholder="Re-type password" required>
+          <div class="input-group-append input-group-text">
+          <span toggle="#password-field-v" class="far fa-eye-slash toggle-password-v" title="Show/hide password"></span>
           </div>
         </div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+               I agree to the <a href="#" title="Terms">terms</a>
               </label>
             </div>
           </div>
@@ -86,5 +98,29 @@
 <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+$(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye-slash fa-eye");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+
+$(".toggle-password-v").click(function() {
+
+$(this).toggleClass("fa-eye-slash fa-eye");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+</script>
 </body>
 </html>

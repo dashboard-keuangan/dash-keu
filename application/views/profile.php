@@ -151,7 +151,7 @@
     <a href="<?=base_url();?>" class="brand-link">
       <img src="<?=base_url();?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Baramij</span>
+      <span class="brand-text font-weight-light">DashKeu</span>
     </a>
 
     <!-- Sidebar -->
@@ -166,6 +166,7 @@
               <img src="<?=base_url();?>assets/dist/img/avatar5.png" class="nav-icon img-circle elevation-2" alt="User Image">
               <p>
                 <?=$this->session->userdata('dash_keu_nama')?>
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -197,14 +198,34 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Keuangan
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=base_url('pages/pemasukan')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pemasukan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('pages/pengeluaran')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengeluaran</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('pages/rekapitulasi')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Rekapitulasi</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -270,220 +291,6 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Tables</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mailbox
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inbox</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Compose</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Read</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-header">TEAMS</li>
           <li class="nav-item">
             <a href="<?=base_url('pages/team');?>" class="nav-link">
@@ -534,40 +341,15 @@
                        src="<?=base_url();?>assets/dist/img/avatar5.png"
                        alt="User profile picture">
                 </div>
+                <?php foreach ($profil as $prof) { ?>
+                <h3 class="profile-username text-center"><?=$prof['nama'];?></h3>
 
-                <h3 class="profile-username text-center"><?php foreach ($profil as $prof) { echo $prof['nama']; }?></h3>
+                <p class="text-muted text-center">Employee</p>
 
-                <p class="text-muted text-center">Software Engineer</p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">About Me</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
                 <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                  <?=$prof['education'];?>
                 </p>
 
                 <hr>
@@ -581,18 +363,15 @@
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
                 <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
+                  <?=$prof['skill'];?>
                 </p>
 
                 <hr>
 
                 <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
 
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                <p class="text-muted"><?=$prof['notes'];?></p>
+                <?php } ?>
               </div>
               <!-- /.card-body -->
             </div>
@@ -652,25 +431,37 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Username</label>
-                                <div class="col-md-12">
+                                <div class="input-group col-md-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                  </div>
                                     <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$prof['username']; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="col-md-12">Full Name</label>
-                                <div class="col-md-12">
+                                <div class="input-group col-md-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                  </div>
                                     <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$prof['nama']; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-md-12">Email</label>
-                                <div class="col-md-12">
+                                <div class="input-group col-md-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                  </div>
                                     <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$prof['email']; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-12">Jenis Kelamin</label>
-                                <div class="col-sm-12">
+                                <div class="input-group col-sm-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                                  </div>
                                     <select class="form-control form-control-line" name="jenis_kelamin">
                                         <option value="L" <?php if ($prof['jenis_kelamin']=="L") { echo "selected='yes'"; } ?>>L</option>
                                         <option value="P" <?php if ($prof['jenis_kelamin']=="P") { echo "selected='yes'"; } ?>>P</option>
@@ -679,20 +470,44 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Phone No</label>
-                                <div class="col-md-12">
+                                <div class="input-group col-md-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                  </div>
                                     <input type="text" class="form-control form-control-line" value="<?=$prof['no_telp']; ?>" name="no_telp">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Domisili</label>
-                                <div class="col-md-12">
+                                <div class="input-group col-md-12">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-street-view"></i></span>
+                                  </div>
                                     <input type="text" class="form-control form-control-line" value="<?=$prof['alamat']; ?>" name="alamat">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Pendidikan Terakhir</label>
+                                <div class="col-md-12">
+                                <input type="text" class="form-control form-control-line" value="<?=$prof['education']; ?>" name="education">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Skills</label>
+                                <div class="col-md-12">
+                                    <textarea rows="3" class="form-control form-control-line" name="skill"><?=$prof['skill']; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Bio</label>
                                 <div class="col-md-12">
                                     <textarea rows="5" class="form-control form-control-line" name="bio"><?=$prof['bio']; ?></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Notes</label>
+                                <div class="col-md-12">
+                                    <textarea rows="3" class="form-control form-control-line" name="notes"><?=$prof['notes']; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

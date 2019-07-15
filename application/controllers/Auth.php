@@ -61,18 +61,23 @@ class Auth extends CI_Controller {
     if ($this->input->post()) {
       $data['username'] = $this->input->post('username');
       $data['nama'] = $this->input->post('nama');
-			$data['password'] = sha1($this->input->post('password'));
-
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules('username', 'password', 'is_unique[user.username]');
-			if ($this->form_validation->run()) {
-        $this->m_user->add_user($data);
-        $this->session->set_flashdata('register_ok', 'Success!');
-        redirect('auth', 'location');
-			} else {
-        $this->session->set_flashdata('register_fail', 'Failed! Username exist!');
-        redirect('auth/register', 'location');
-			}
+      $data['password'] = sha1($this->input->post('password'));
+      $data['password-v'] = sha1($this->input->post('password-v'));
+      if ($data['password']==$data['password-v']){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'password', 'is_unique[user.username]');
+        if ($this->form_validation->run()) {
+          $this->m_user->add_user($data);
+          $this->session->set_flashdata('register_ok', 'Success!');
+          redirect('auth', 'location');
+        } else {
+          $this->session->set_flashdata('register_fail', 'Failed! Username exist!');
+          redirect('auth/register', 'location');
+        }
+      } else {
+        $this->session->set_flashdata('register_fail_p', 'Failed! Password does not match');
+          redirect('auth/register', 'location');
+      }
 		}
   }
 

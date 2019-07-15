@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=base_url();?>"><b>Admin</b>LTE</a>
+    <a href="<?=base_url();?>"><b>Dash</b>Keu</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -49,13 +49,13 @@
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="far fa-user"></span>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input id="password-field" type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append input-group-text">
-              <span class="fas fa-lock"></span>
+              <span toggle="#password-field" class="far fa-eye-slash toggle-password" title="Show/hide password"></span>
           </div>
         </div>
         <div class="row">
@@ -92,5 +92,17 @@
 <!-- Bootstrap 4 -->
 <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script type="text/javascript">
+$(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye-slash fa-eye");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+</script>
 </body>
 </html>
