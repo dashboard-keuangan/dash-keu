@@ -535,7 +535,7 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center"><?=$this->session->userdata('dash_keu_nama');?></h3>
+                <h3 class="profile-username text-center"><?php foreach ($profil as $prof) { echo $prof['nama']; }?></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 
