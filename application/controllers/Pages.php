@@ -47,7 +47,41 @@ class Pages extends CI_Controller {
 		redirect('/', 'location');
 	}
 
+	public function act_passwd() {
+		if (($this->input->post('password0') && $this->input->post('password')) == '') {
+			$this->session->set_flashdata('ubahpass_kosong', TRUE);
+			redirect('/', 'location');
+		} elseif ($this->input->post('password0') == $this->input->post('password')) {
+			$this->load->model('m_user', '', TRUE);
+			$id = $this->session->userdata('dash_keu_id');
+			$data['password'] = sha1($this->input->post('password0'));
+
+			$this->m_user->update_user($data, $id);
+			$this->session->set_flashdata('ubahpass_berhasil', TRUE);
+			redirect('/', 'location');
+		} else {
+			$this->session->set_flashdata('ubahpass_gagal', TRUE);
+			redirect('pages/settings', 'location');
+		}
+	}
+
 	public function sha() {
 		$this->load->view('sha');
+	}
+
+	public function settings() {
+		$this->load->view('settings');
+	}
+
+	public function chart() {
+		$this->load->view('chart');
+	}
+
+	public function lap_harian() {
+		$this->load->view('laporan_harian');
+	}
+
+	public function blank() {
+		$this->load->view('blank');
 	}
 }

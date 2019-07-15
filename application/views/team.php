@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Profile :: DashKeu</title>
-  <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Teams :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?=base_url();?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?=base_url();?>assets/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 <div class="wrapper">
   <!-- Navbar -->
@@ -62,7 +71,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="<?=base_url()?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -78,7 +87,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="<?=base_url()?>assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -94,7 +103,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="<?=base_url()?>assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -161,8 +170,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview user-panel menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview user-panel">
+            <a href="#" class="nav-link">
               <img src="<?=base_url();?>assets/dist/img/avatar5.png" class="nav-icon img-circle elevation-2" alt="User Image">
               <p>
                 <?=$this->session->userdata('dash_keu_nama')?>
@@ -170,7 +179,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('pages/profile');?>" class="nav-link active">
+                <a href="<?=base_url('pages/profile');?>" class="nav-link">
                   <i class="far fa fa-user nav-icon"></i>
                   <p>Profile</p>
                 </a>
@@ -190,7 +199,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url();?>" class="nav-link">
+            <a href="<?=base_url();?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -216,7 +225,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('pages/lap_harian')?>" class="nav-link">
+                <a href="<?=base_url('pages/lap_harian')?>" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Harian</p>
                 </a>
@@ -251,7 +260,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('pages/chart')?>" class="nav-link">
+                <a href="pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ChartJS</p>
                 </a>
@@ -494,6 +503,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?=base_url('pages/chart');?>" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Chart
+                <span class="badge badge-warning right">New</span>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -504,222 +522,275 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
-          </div>
+            <h1 class="m-0 text-dark">Teams</h1>
+          </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">User Profile</li>
+              <li class="breadcrumb-item active">Teams</li>
             </ol>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="<?=base_url();?>assets/dist/img/avatar5.png"
-                       alt="User profile picture">
+      <div class="row">
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Alexander Pierce</h3>
+                <h5 class="widget-user-desc">Founder & CEO</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
                 </div>
-
-                <h3 class="profile-username text-center"><?=$this->session->userdata('dash_keu_nama');?></h3>
-
-                <p class="text-muted text-center">Software Engineer</p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                <!-- /.row -->
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">About Me</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted"><?=$this->session->userdata('dash_keu_alamat');?></p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <!-- /.widget-user -->
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#profile" data-toggle="tab">Profile</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="active tab-pane" id="profile">
-                    <!-- The timeline -->
-                    <?php foreach ($profil as $prof) { ?>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
-                                <br>
-                                <p class="text-muted"><?=$prof['nama']; ?></p>
-                            </div>
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
-                                <br>
-                                <p class="text-muted"><?=$prof['no_telp']; ?></p>
-                            </div>
-                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
-                                <br>
-                                <p class="text-muted"><?=$prof['email']; ?></p>
-                            </div>
-                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
-                                <br>
-                                <p class="text-muted"><?=$prof['alamat']; ?></p>
-                            </div>
-                        </div>
-                        <div class="post clearfix"></div>
-                        <h4 class="font-medium m-t-30">Bio</h4>
-                        <p class="m-t-30"><?=$prof['bio']; ?></p>
-                        <div class="post clearfix"></div>
+          <!-- / Team 1 -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Alexander Pierce</h3>
+                <h5 class="widget-user-desc">Founder & CEO</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
                     </div>
-                    <?php } ?>
+                    <!-- /.description-block -->
                   </div>
-                  <!-- /.tab-pane -->
-
-                  <div class="tab-pane" id="settings">
-                    <?php foreach ($profil as $prof) { ?>
-                    <div class="card-body">
-                        <form class="form-horizontal form-material" action="<?=base_url('pages/act_update_prof')?>" method="POST">
-                            <div class="form-group">
-                                <label class="col-md-12">ID</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" name="id" id="id" value="<?=$prof['id']; ?>" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Username</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$prof['username']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="nama" class="col-md-12">Full Name</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$prof['nama']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="col-md-12">Email</label>
-                                <div class="col-md-12">
-                                    <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$prof['email']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-12">Jenis Kelamin</label>
-                                <div class="col-sm-12">
-                                    <select class="form-control form-control-line" name="jenis_kelamin">
-                                        <option value="L" <?php if ($prof['jenis_kelamin']=="L") { echo "selected='yes'"; } ?>>L</option>
-                                        <option value="P" <?php if ($prof['jenis_kelamin']=="P") { echo "selected='yes'"; } ?>>P</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Phone No</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" value="<?=$prof['no_telp']; ?>" name="no_telp">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Domisili</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" value="<?=$prof['alamat']; ?>" name="alamat">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Bio</label>
-                                <div class="col-md-12">
-                                    <textarea rows="5" class="form-control form-control-line" name="bio"><?=$prof['bio']; ?></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success" type="submit">Update Profile</button>
-                                    <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
-                                </div>
-                            </div>
-                        </form>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
                     </div>
-                    <?php } ?>
+                    <!-- /.description-block -->
                   </div>
-                  <!-- /.tab-pane -->
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+                <!-- /.row -->
+              </div>
             </div>
-            <!-- /.nav-tabs-custom -->
+            <!-- /.widget-user -->
           </div>
           <!-- /.col -->
+          <!-- Team 2 -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Alexander Pierce</h3>
+                <h5 class="widget-user-desc">Founder & CEO</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <!-- Team 3 -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc">Web Designer</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <!-- Team 4 -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                <h3 class="widget-user-username">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc">Web Designer</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <!-- Team 5 -->
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+      <!-- / Widget -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2019 <a href="https://github.com/dashboard-keuangan/dash-keu">Team KP</a>.</strong>
     All rights reserved.
@@ -727,26 +798,23 @@
       Telkom University
     </div>
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
+
 <!-- jQuery -->
-<script src="<?=base_url();?>assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?=base_url();?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="<?=base_url();?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- FastClick -->
-<script src="<?=base_url();?>assets/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?=base_url();?>assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?=base_url();?>assets/dist/js/demo.js"></script>
+<script src="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE -->
+<script src="<?=base_url()?>assets/dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="<?=base_url()?>assets/plugins/chart.js/Chart.min.js"></script>
+<script src="<?=base_url()?>assets/dist/js/demo.js"></script>
+<script src="<?=base_url()?>assets/dist/js/pages/dashboard3.js"></script>
 </body>
 </html>

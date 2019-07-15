@@ -51,7 +51,7 @@ class Auth extends CI_Controller {
         $this->session->set_userdata('dash_keu_email', $data[0]['email']);
         $this->session->set_userdata('dash_keu_alamat', $data[0]['alamat']);
 
-				redirect('pages', 'location');
+				redirect('/', 'location');
 			}
 		}
   }
