@@ -356,7 +356,7 @@
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
 
-                <p class="text-muted"><?=$this->session->userdata('dash_keu_alamat');?></p>
+                <p class="text-muted"><?=$prof['alamat'];?></p>
 
                 <hr>
 

@@ -56,8 +56,7 @@ class Auth extends CI_Controller {
 		}
   }
   
-  public function act_register()
-  {
+  public function act_register() {
     if ($this->input->post()) {
       $data['username'] = $this->input->post('username');
       $data['nama'] = $this->input->post('nama');
