@@ -23,4 +23,14 @@ class M_keuangan extends CI_Model
 	public function get_peng_by_id($id) {
 		return $this->db->get_where($this->table_pengeluaran, array('id' => $id))->result_array();
 	}
+	function report(){
+        $query = $this->db->query("SELECT * from report");
+         
+        if($query->num_rows() > 0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
 }

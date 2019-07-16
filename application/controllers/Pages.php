@@ -79,7 +79,8 @@ class Pages extends CI_Controller {
 	}
 
 	public function lap_harian() {
-		$this->load->view('laporan_harian');
+		$data['report'] = $this->m_keuangan->report();
+		$this->load->view('laporan_harian', $data);
 	}
 
 	public function blank() {
