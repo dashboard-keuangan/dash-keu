@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2019 at 10:36 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Waktu pembuatan: 16 Jul 2019 pada 15.25
+-- Versi server: 10.3.15-MariaDB
+-- Versi PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukan`
+-- Struktur dari tabel `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
@@ -38,7 +38,7 @@ CREATE TABLE `pemasukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pemasukan`
+-- Dumping data untuk tabel `pemasukan`
 --
 
 INSERT INTO `pemasukan` (`id`, `kode`, `tanggal`, `keterangan`, `jumlah`, `no_kwitansi`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `pemasukan` (`id`, `kode`, `tanggal`, `keterangan`, `jumlah`, `no_kw
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -60,7 +60,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `no_kwitansi`, `tanggal`, `keterangan`, `jumlah`) VALUES
@@ -69,7 +69,33 @@ INSERT INTO `pengeluaran` (`id`, `no_kwitansi`, `tanggal`, `keterangan`, `jumlah
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `report`
+--
+
+CREATE TABLE `report` (
+  `idreport` int(11) NOT NULL,
+  `bulan` varchar(50) DEFAULT NULL,
+  `nilai` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `report`
+--
+
+INSERT INTO `report` (`idreport`, `bulan`, `nilai`) VALUES
+(1, 'january', 60),
+(2, 'febuary', 40),
+(3, 'maret', 50),
+(4, 'april', 10),
+(5, 'mei', 30),
+(6, 'juni', 30),
+(7, 'juli', 20),
+(8, 'agustus', 60);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -88,7 +114,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `bio`, `skill`, `education`, `notes`) VALUES
@@ -100,41 +126,53 @@ INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp
 --
 
 --
--- Indexes for table `pemasukan`
+-- Indeks untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`idreport`);
+
+--
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pemasukan`
+-- AUTO_INCREMENT untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `report`
+--
+ALTER TABLE `report`
+  MODIFY `idreport` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
