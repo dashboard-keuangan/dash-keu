@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="http://[::1]/kaskeuangan/assets/pixeladmin-lite/plugins/datepicker/css/datepicker.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
@@ -65,7 +67,47 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row">
           <div class="col">
-
+            <div class="card">
+              <div class="card-header">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title p-1">Rekapitulasi</h3>
+                  <span title="Kembali"><button class="btn btn-sm btn-danger">Kembali</button></span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="col-sm-12">
+                  <div class="white-box">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <input type="text" name="tanggal_awal" data-date-format="yyyy-mm-dd" readonly id="tanggal_awal" placeholder="Tanggal Awal" class="form-control form-control-line tgl">
+                      </div>
+                      <div class="col-sm-4">
+                        <input type="text" placeholder="Tanggal Akhir" data-date-format="yyyy-mm-dd" readonly name="tanggal akhir" id="tanggal_akhir" class="form-control form-control-line tgl"> 
+                      </div>
+                      <div class="col-sm-4">
+                        <button type="button" class="btn btn-warning" onclick="back()">Kembali</button>
+                        <button type="button" class="btn btn-primary" onclick="lihat_laporan()" style="margin-right: 5px;">Lihat</button>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                      <div id="isi_tabel">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>No</th>
+                              <th>Nama</th>
+                              <th>Jumlah</th>                     
+                            </tr>
+                          </thead>                        
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+            <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>

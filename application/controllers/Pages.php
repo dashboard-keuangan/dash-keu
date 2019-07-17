@@ -12,12 +12,9 @@ class Pages extends CI_Controller {
 	  }
 	  
 	public function index()	{
-		//redirect('pages/dashboard', 'location');
-		$this->dashboard();
-	}
-
-	public function dashboard() {
-		$this->load->view('index');
+		$data['pemasukan'] = $this->m_keuangan->get_total_masuk();
+		$data['pengeluaran'] = $this->m_keuangan->get_total_keluar();
+		$this->load->view('index',$data);
 	}
 
 	public function team() {
