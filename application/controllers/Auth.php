@@ -29,7 +29,8 @@ class Auth extends CI_Controller {
 
   public function logout()
   {
-    $this->session->sess_destroy();
+    $array_val = array('dash_keu_id','dash_keu_username', 'dash_keu_nama');
+    $this->session->unset_userdata($array_val);
     redirect('auth', 'location');
   }
 
@@ -48,8 +49,6 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('dash_keu_id', $data[0]['id']);
 				$this->session->set_userdata('dash_keu_username', $data[0]['username']);
 				$this->session->set_userdata('dash_keu_nama', $data[0]['nama']);
-        $this->session->set_userdata('dash_keu_email', $data[0]['email']);
-        $this->session->set_userdata('dash_keu_alamat', $data[0]['alamat']);
 
 				redirect('/', 'location');
 			}
@@ -80,7 +79,4 @@ class Auth extends CI_Controller {
 		}
   }
 
-  public function sha() {
-    $this->load->view('sha');
-  }
 }

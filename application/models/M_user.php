@@ -7,7 +7,7 @@ class M_user extends CI_Model
 		return $this->db->get_where($this->table_name, array('username' => $username, 'password' => $pwd))->result_array();
 	}
 	public function get_user_by_id($id) {
-		return $this->db->get_where($this->table_name, array('id' => $id))->result_array();
+		return $this->db->get_where($this->table_name, array('id' => $id))->result();
 	}
 	public function add_user($data) {
 		return $this->db->insert($this->table_name, $data);

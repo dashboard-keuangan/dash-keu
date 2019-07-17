@@ -24,289 +24,11 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?=base_url()?>" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-            class="fas fa-th-large"></i></a>
-      </li>
-    </ul>
-  </nav>
+  <?php $this->load->view('_partial/navbar');?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="<?=base_url();?>" class="brand-link">
-      <img src="<?=base_url();?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">DashKeu</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview user-panel menu-open">
-            <a href="#" class="nav-link active">
-              <img src="<?=base_url();?>assets/dist/img/avatar5.png" class="nav-icon img-circle elevation-2" alt="User Image">
-              <p>
-                <?=$this->session->userdata('dash_keu_nama')?>
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('pages/profile');?>" class="nav-link active">
-                  <i class="far fa fa-user nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/settings')?>" class="nav-link">
-                  <i class="far fa fa-gavel nav-icon"></i>
-                  <p>Settings</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('logout');?>" class="nav-link">
-                  <i class="far fa fa-power-off nav-icon"></i>
-                  <p>Logout</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?=base_url();?>" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Keuangan
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('pages/pemasukan')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pemasukan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/pengeluaran')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pengeluaran</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/rekapitulasi')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rekapitulasi</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Laporan
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('pages/lap_harian')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Harian</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/lap_mingguan')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Mingguan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/lap_bulanan')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Bulanan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('pages/lap_tahunan')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Tahunan</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=base_url('pages/chart')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">TEAMS</li>
-          <li class="nav-item">
-            <a href="<?=base_url('pages/team');?>" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Teams
-                <span class="badge badge-info right">5</span>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+  <?php $this->load->view('_partial/sidebar');?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -341,36 +63,36 @@
                        src="<?=base_url();?>assets/dist/img/avatar5.png"
                        alt="User profile picture">
                 </div>
-                <?php foreach ($profil as $prof) { ?>
-                <h3 class="profile-username text-center"><?=$prof['nama'];?></h3>
+                <?php foreach ($profil as $row) { ?>
+                <h3 class="profile-username text-center"><?=$row->nama;?></h3>
 
                 <p class="text-muted text-center">Employee</p>
 
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
                 <p class="text-muted">
-                  <?=$prof['education'];?>
+                  <?=$row->education;?>
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
 
-                <p class="text-muted"><?=$prof['alamat'];?></p>
+                <p class="text-muted"><?=$row->alamat;?></p>
 
                 <hr>
 
                 <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
                 <p class="text-muted">
-                  <?=$prof['skill'];?>
+                  <?=$row->skill;?>
                 </p>
 
                 <hr>
 
                 <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
 
-                <p class="text-muted"><?=$prof['notes'];?></p>
+                <p class="text-muted"><?=$row->notes;?></p>
                 <?php } ?>
               </div>
               <!-- /.card-body -->
@@ -379,7 +101,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-9">
-            <div class="card">
+            <div class="card card-primary card-outline">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#profile" data-toggle="tab">Profile</a></li>
@@ -390,29 +112,29 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="profile">
                     <!-- The timeline -->
-                    <?php foreach ($profil as $prof) { ?>
+                    <?php foreach ($profil as $row) { ?>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
                                 <br>
-                                <p class="text-muted"><?=$prof['nama']; ?></p>
+                                <p class="text-muted"><?=$row->nama; ?></p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
                                 <br>
-                                <p class="text-muted"><?=$prof['no_telp']; ?></p>
+                                <p class="text-muted"><?=$row->no_telp; ?></p>
                             </div>
                             <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
                                 <br>
-                                <p class="text-muted"><?=$prof['email']; ?></p>
+                                <p class="text-muted"><?=$row->email; ?></p>
                             </div>
                             <div class="col-md-3 col-xs-6"> <strong>Location</strong>
                                 <br>
-                                <p class="text-muted"><?=$prof['alamat']; ?></p>
+                                <p class="text-muted"><?=$row->alamat; ?></p>
                             </div>
                         </div>
                         <div class="post clearfix"></div>
                         <h4 class="font-medium m-t-30">Bio</h4>
-                        <p class="m-t-30"><?=$prof['bio']; ?></p>
+                        <p class="m-t-30"><?=$row->bio; ?></p>
                         <div class="post clearfix"></div>
                     </div>
                     <?php } ?>
@@ -420,13 +142,13 @@
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="settings">
-                    <?php foreach ($profil as $prof) { ?>
+                    <?php foreach ($profil as $row) { ?>
                     <div class="card-body">
                         <form class="form-horizontal form-material" action="<?=base_url('pages/act_update_prof')?>" method="POST">
                             <div class="form-group">
                                 <label class="col-md-12">ID</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control form-control-line" name="id" id="id" value="<?=$prof['id']; ?>" disabled>
+                                    <input type="text" class="form-control form-control-line" name="id" id="id" value="<?=$row->id; ?>" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -435,7 +157,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                   </div>
-                                    <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$prof['username']; ?>">
+                                    <input type="text" class="form-control form-control-line" name="username" id="username" value="<?=$row->username; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -444,7 +166,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                   </div>
-                                    <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$prof['nama']; ?>">
+                                    <input type="text" class="form-control form-control-line" name="nama" id="nama" value="<?=$row->nama; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -453,7 +175,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                   </div>
-                                    <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$prof['email']; ?>">
+                                    <input type="email" class="form-control form-control-line" name="email" id="email" value="<?=$row->email; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -463,8 +185,8 @@
                                     <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
                                   </div>
                                     <select class="form-control form-control-line" name="jenis_kelamin">
-                                        <option value="L" <?php if ($prof['jenis_kelamin']=="L") { echo "selected='yes'"; } ?>>L</option>
-                                        <option value="P" <?php if ($prof['jenis_kelamin']=="P") { echo "selected='yes'"; } ?>>P</option>
+                                        <option value="L" <?php if ($row->jenis_kelamin=="L") { echo "selected='yes'"; } ?>>L</option>
+                                        <option value="P" <?php if ($row->jenis_kelamin=="P") { echo "selected='yes'"; } ?>>P</option>
                                     </select>
                                 </div>
                             </div>
@@ -474,7 +196,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                   </div>
-                                    <input type="text" class="form-control form-control-line" value="<?=$prof['no_telp']; ?>" name="no_telp">
+                                    <input type="text" class="form-control form-control-line" value="<?=$row->no_telp; ?>" name="no_telp">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -483,31 +205,31 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-street-view"></i></span>
                                   </div>
-                                    <input type="text" class="form-control form-control-line" value="<?=$prof['alamat']; ?>" name="alamat">
+                                    <input type="text" class="form-control form-control-line" value="<?=$row->alamat; ?>" name="alamat">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Pendidikan Terakhir</label>
                                 <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" value="<?=$prof['education']; ?>" name="education">
+                                <input type="text" class="form-control form-control-line" value="<?=$row->education; ?>" name="education">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Skills</label>
                                 <div class="col-md-12">
-                                    <textarea rows="3" class="form-control form-control-line" name="skill"><?=$prof['skill']; ?></textarea>
+                                    <textarea rows="3" class="form-control form-control-line" name="skill"><?=$row->skill; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Bio</label>
                                 <div class="col-md-12">
-                                    <textarea rows="5" class="form-control form-control-line" name="bio"><?=$prof['bio']; ?></textarea>
+                                    <textarea rows="5" class="form-control form-control-line" name="bio"><?=$row->bio; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Notes</label>
                                 <div class="col-md-12">
-                                    <textarea rows="3" class="form-control form-control-line" name="notes"><?=$prof['notes']; ?></textarea>
+                                    <textarea rows="3" class="form-control form-control-line" name="notes"><?=$row->notes; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -535,33 +257,11 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="https://github.com/dashboard-keuangan/dash-keu">Team KP</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      Telkom University
-    </div>
-  </footer>
-
+  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="<?=base_url();?>assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?=base_url();?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="<?=base_url();?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- FastClick -->
-<script src="<?=base_url();?>assets/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?=base_url();?>assets/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?=base_url();?>assets/dist/js/demo.js"></script>
-</body>
-</html>
+  
+  <?php $this->load->view('_partial/footer');?>

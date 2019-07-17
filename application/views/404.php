@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Setting :: DashKeu</title>
+  <title>404 Page not found :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -47,12 +47,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Change Password</h1>
+            <h1 class="m-0 text-dark">404 Error Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Change Password</li>
+              <li class="breadcrumb-item active">404 Error Page</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -61,56 +61,41 @@ to get the desired effect
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <?php if ($this->session->userdata('ubahpass_gagal')) {?>
-          <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-check"></i> Failed!</h5>
-            Update password gagal! Value tidak sama.
-          </div>
-        <?php } ?>
-        <div class="row">
-          <div class="col">
-            <!-- Profile Image -->
-            <div class="card">
-              <div class="card-header no-border">
-                <h3 class="card-title">Change Password</h3>
+    <section class="content">
+      <div class="error-page">
+        <h2 class="headline text-warning"> 404</h2>
+
+        <div class="error-content">
+          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+
+          <p>
+            <!-- Start ALERT -->
+            <!-- ============================================================== -->
+            <?php if ($this->session->flashdata('error_search')) {?>
+                Maaf, halaman yang anda cari tidak ada. Value pada kotak pencarian kosong.<hr/> Coba untuk mengisi kotak pencarian.
+            <?php } else { ?>
+                We could not find the page you were looking for. Meanwhile, you may return to <a href="<?=base_url()?>">dashboard</a> or try using the search form.
+            <?php } ?>
+            <!-- ============================================================== -->
+            <!-- End ALERT -->
+          </p>
+
+          <form class="search-form" action="<?=base_url('pages/search')?>" method="GET">
+            <div class="input-group">
+              <input type="search" name="q" class="form-control" placeholder="Search ...">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i>
+                </button>
               </div>
-              <div class="card-body">
-                <form class="form-horizontal form-material" action="<?=base_url('pages/act_passwd')?>" method="POST">
-                  <div class="form-group">
-                    <label class="col-md-12">New Password</label>
-                    <div class="col-md-12">
-                      <input type="password" class="form-control form-control-line" name="password0" id="password0" placeholder="Enter New Password">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Retype New Password</label>
-                    <div class="col-md-12">
-                      <input type="password" class="form-control form-control-line" name="password" id="username" placeholder="Retype New Password">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-12">
-                      <button class="btn btn-warning" type="submit">Change Password</button>
-                      <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
-                    </div>
-                  </div>
-                </form>
-                <!-- /form -->
-                * Nilai kosong tidak akan mengubah password
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
+            <!-- /.input-group -->
+          </form>
         </div>
-        <!-- /.row -->
+        <!-- /.error-content -->
       </div>
-      <!-- /.container-fluid -->
-    </div>
+      <!-- /.error-page -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

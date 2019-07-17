@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Setting :: DashKeu</title>
+  <title>Pencarian :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -47,12 +47,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Change Password</h1>
+            <h1 class="m-0 text-dark">Pencarian</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Change Password</li>
+              <li class="breadcrumb-item active">Pencarian</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -63,45 +63,58 @@ to get the desired effect
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <?php if ($this->session->userdata('ubahpass_gagal')) {?>
-          <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-check"></i> Failed!</h5>
-            Update password gagal! Value tidak sama.
-          </div>
-        <?php } ?>
         <div class="row">
           <div class="col">
-            <!-- Profile Image -->
             <div class="card">
-              <div class="card-header no-border">
-                <h3 class="card-title">Change Password</h3>
+              <div class="card-header">
+                <h3 class="card-title">Pencarian</h3>
               </div>
               <div class="card-body">
-                <form class="form-horizontal form-material" action="<?=base_url('pages/act_passwd')?>" method="POST">
-                  <div class="form-group">
-                    <label class="col-md-12">New Password</label>
-                    <div class="col-md-12">
-                      <input type="password" class="form-control form-control-line" name="password0" id="password0" placeholder="Enter New Password">
+                <form role="form" method="GET">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <select type="button" class="btn btn-block btn-default" name="kategori">
+                        <option value="pemasukan">Pemasukan</option>
+                        <option value="pengeluaran">Pengeluaran</option>
+                      </select>
+                    </div>
+                    <input type="search" class="form-control" name="q" placeholder="Search ...">
+                    <div class="input-group-append">
+                      <button class="input-group-text" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Retype New Password</label>
-                    <div class="col-md-12">
-                      <input type="password" class="form-control form-control-line" name="password" id="username" placeholder="Retype New Password">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-12">
-                      <button class="btn btn-warning" type="submit">Change Password</button>
-                      <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
-                    </div>
-                  </div>
+                  <!-- /input-group -->
                 </form>
-                <!-- /form -->
-                * Nilai kosong tidak akan mengubah password
+                <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Kode</th>
+                    <th>Keterangan</th>
+                    <th>Jumlah</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php if ($this->input->get('q')=='') { $this->session->set_flashdata('error_search', 'Failed! Value kosong.'); redirect('pages/error_404', 'location'); } else { ?>
+                <h2><?=ucwords($this->input->get('kategori'))?></h2>
+                <?php if ($this->input->get()) { foreach($results as $row){ ?>
+                  <?php if ($this->input->get('kategori')=='pemasukan') { ?>
+                    <tr>
+                      <td><?php echo $row->kode?></td>
+                      <td><?php echo $row->keterangan?></td>
+                      <td><?php echo $row->jumlah?></td>
+                    </tr>
+                  <?php } else { ?>
+                    <tr>
+                      <td><?php echo $row->no_kwitansi?></td>
+                      <td><?php echo $row->keterangan?></td>
+                      <td><?php echo $row->jumlah?></td>
+                    </tr>
+                  <?php } ?>
+                <?php } } ?>
+                <?php } ?>
+                </tfoot>
+                </table>
               </div>
-              <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>

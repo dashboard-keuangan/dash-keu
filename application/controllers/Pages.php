@@ -66,10 +66,6 @@ class Pages extends CI_Controller {
 		}
 	}
 
-	public function sha() {
-		$this->load->view('sha');
-	}
-
 	public function settings() {
 		$this->load->view('settings');
 	}
@@ -106,7 +102,7 @@ class Pages extends CI_Controller {
 			}
 		  } else {
 			$this->session->set_flashdata('register_fail_p', 'Failed! Password does not match');
-			  redirect('auth/register', 'location');
+			redirect('auth/register', 'location');
 		  }
 		}
 	}
@@ -144,5 +140,17 @@ class Pages extends CI_Controller {
 
 	public function rekapitulasi() {
 		$this->load->view('rekapitulasi');
+	}
+
+	public function search() {
+		$keyword = $this->input->get('q');
+		$tabel = $this->input->get('kategori');
+		
+		$data['results'] = $this->m_keuangan->pencarian($keyword, $tabel);
+		$this->load->view('search',$data);
+	}
+
+	public function error_404() {
+		$this->load->view('404');
 	}
 }
