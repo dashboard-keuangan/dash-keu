@@ -126,3 +126,20 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
+  
+  <script src="http://[::1]/kaskeuangan/assets/pixeladmin-lite/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+
+  <script>
+	$('.tgl').datepicker();
+	function lihat_laporan() {
+        
+		let tgl_awal = $('#tanggal_awal').val();
+		let tgl_akhir = $('#tanggal_akhir').val();
+		if (tgl_awal=='' || tgl_akhir=='' ) {
+			alert('harap isi tanggal terlebih dulu');
+		}else{
+			$('#isi_tabel').load('lap.php?tgl_awal='+tgl_awal+'&tgl_akhir='+tgl_akhir);
+		}
+		
+	}
+</script>
