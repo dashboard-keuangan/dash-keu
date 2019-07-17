@@ -7,8 +7,7 @@ class Auth extends CI_Controller {
 		$this->load->model('m_user', '', TRUE);
   }
   
-	public function index()
-	{
+	public function index() {
     if ($this->session->userdata('dash_keu_id')){
       redirect('pages','location');
     }
@@ -17,25 +16,21 @@ class Auth extends CI_Controller {
     }
   }
 
-	public function register()
-	{
+	public function register() {
 		$this->load->view('auth/register');
   }
   
-  public function recover()
-  {
+  public function recover() {
     $this->load->view('auth/recover');
   }
 
-  public function logout()
-  {
+  public function logout() {
     $array_val = array('dash_keu_id','dash_keu_username', 'dash_keu_nama');
     $this->session->unset_userdata($array_val);
     redirect('auth', 'location');
   }
 
-  public function act_login()
-  {
+  public function act_login() {
     // cek $_POST
 		if ($this->input->post()) {
 			$username = $this->input->post('username');

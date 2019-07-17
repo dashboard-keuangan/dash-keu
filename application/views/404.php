@@ -72,25 +72,30 @@ to get the desired effect
             <!-- Start ALERT -->
             <!-- ============================================================== -->
             <?php if ($this->session->flashdata('error_search')) {?>
-                Maaf, halaman yang anda cari tidak ada. Value pada kotak pencarian kosong.<hr/> Coba untuk mengisi kotak pencarian.
+              Maaf, halaman yang anda cari tidak ada. Value pada kotak pencarian kosong.<hr/> Coba untuk mengisi kotak pencarian.
+              <form class="search-form" action="<?=base_url('pages/search')?>" method="GET">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <select type="button" class="btn btn-block btn-default" name="kategori">
+                      <option value="pemasukan">Pemasukan</option>
+                      <option value="pengeluaran">Pengeluaran</option>
+                    </select>
+                  </div>
+                  <input type="search" name="q" class="form-control" placeholder="Search ...">
+
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- /.input-group -->
+              </form>
             <?php } else { ?>
                 We could not find the page you were looking for. Meanwhile, you may return to <a href="<?=base_url()?>">dashboard</a> or try using the search form.
             <?php } ?>
             <!-- ============================================================== -->
             <!-- End ALERT -->
           </p>
-
-          <form class="search-form" action="<?=base_url('pages/search')?>" method="GET">
-            <div class="input-group">
-              <input type="search" name="q" class="form-control" placeholder="Search ...">
-
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.input-group -->
-          </form>
         </div>
         <!-- /.error-content -->
       </div>

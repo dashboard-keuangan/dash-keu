@@ -43,7 +43,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url();?>" class="nav-link <?=($this->uri->segment(2) == FALSE) ? 'active' : ''; ?>">
+            <a href="<?=base_url();?>" class="nav-link <?=($this->uri->segment(2) == FALSE || $this->uri->segment(2) == 'index') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
