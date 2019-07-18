@@ -84,7 +84,6 @@ to get the desired effect
                         <h3 class="card-title p-1">Data Pemasukan</h3>
                         <div>
                           <span title="Tambah Data"><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-default">Laporan Dana Masuk</button></span>
-                          <span title="Tambah Data"><button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">+ Add Entry</button></span>
                         </div>
                     </div>
                 </div>

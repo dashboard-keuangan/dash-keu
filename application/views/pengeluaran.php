@@ -82,7 +82,7 @@ to get the desired effect
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h3 class="card-title p-1">Data Pengeluaran</h3>
-                        <span title="Tambah Data"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default">+ Add Entry</button></span>
+                        <span title="Tambah Data"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default">Tambah Data Pengeluaran</button></span>
                     </div>
                 </div>
                 <div class="card-body">
