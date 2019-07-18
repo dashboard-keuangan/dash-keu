@@ -159,6 +159,16 @@ to get the desired effect
                 </div>
                 <!-- /.card-body -->
             </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 offset-md-8">
+                  <div class="card text-white bg-danger mb-3" >
+                    <div class="card-header">Total Pengeluaran</div>
+                    <div class="card-body"><h5 class="card-title">Rp. <?=$total;?></h5></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- /.card -->
           </div>
           <!-- /.col -->
