@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
@@ -201,11 +203,14 @@ to get the desired effect
   </aside>
   <!-- /.control-sidebar -->
 
+  <?php $this->load->view('_partial/footer');?>
+  
 <!-- jQuery -->
 <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script src="<?=base_url()?>assets/plugins/chart.js/Chart.min.js"></script>
 <script src="<?=base_url()?>assets/dist/js/pages/dashboard3.js"></script>
+
 <!-- page script -->
 <script>
   $(function () {
@@ -392,4 +397,5 @@ to get the desired effect
   })
 </script>
 
-  <?php $this->load->view('_partial/footer');?>
+</body>
+</html>

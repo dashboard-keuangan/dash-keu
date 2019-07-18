@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Laporan Harian :: DashKeu</title>
+  <title>Edit Data :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
@@ -49,12 +49,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Laporan Harian</h1>
+            <h1 class="m-0 text-dark">Edit Data</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Laporan Harian</li>
+              <li class="breadcrumb-item active">Blank</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -69,24 +69,54 @@ to get the desired effect
           <div class="col">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Laporan Harian</h3>
+                <h3 class="card-title">Edit Data</h3>
               </div>
-              <div class="card-body">                
-                <?php
-                    /* Mengambil query report*/
-                    foreach($report as $result){
-                        $bulan[] = $result->bulan; //ambil bulan
-                        $value[] = (float) $result->nilai; //ambil nilai
-                    }
-                    /* end mengambil query*/
-                    
-                ?>
-                
-                <!-- Load chart dengan menggunakan ID -->
-                <div id="report"></div>
-                <!-- END load chart -->
+              <div class="card-body">
+                <form class="form-horizontal form-material" method="POST">
+                <?php foreach ($edit as $row) { ?>
+                    <?php if ($this->uri->segment(2) == 'edit_data_masuk') { ?>
+                  <div class="form-group">
+                    <label class="col-md-12">Kode</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="kode" value="<?=$row['kode'];?>">
+                    </div>
+                  </div>
+                    <?php } ?>
+                  <div class="form-group">
+                    <label class="col-md-12">No Kwitansi</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="no_kwitansi" value="<?=$row['no_kwitansi'];?>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Tanggal</label>
+                    <div class="col-md-12">
+                      <input type="date" class="form-control form-control-line" name="tanggal" value="<?=$row['tanggal'];?>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Keterangan</label>
+                    <div class="col-md-12">
+                      <textarea row="3" class="form-control form-control-line" name="keterangan"><?=$row['keterangan'];?></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Jumlah</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="jumlah" value="<?=$row['jumlah'];?>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <button class="btn btn-warning" type="submit">Submit</button>
+                    </div>
+                  </div>
+                <?php } ?>
+                </form>
+                <!-- /form -->
               </div>
             </div>
+            <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>
@@ -105,87 +135,6 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
-
-<!-- OPTIONAL SCRIPTS -->
-<script src="<?=base_url()?>assets/plugins/chart.js/Chart.min.js"></script>
-
-<!-- load library jquery dan highcharts -->
-<script src="<?php echo base_url();?>assets/dist/js/jquery.js"></script>
-<script src="<?php echo base_url();?>assets/dist/js/highcharts.js"></script>
-<!-- end load library -->
-<!-- Script untuk memanggil library Highcharts -->
-<script type="text/javascript">
-$(function () {
-    $('#report').highcharts({
-        chart: {
-            type: 'column',
-            margin: 75,
-            options3d: {
-                enabled: false,
-                alpha: 10,
-                beta: 25,
-                depth: 70
-            }
-        },
-        title: {
-            text: 'Report Jan - Agustus',
-            style: {
-                    fontSize: '18px',
-                    fontFamily: 'Verdana, sans-serif'
-            }
-        },
-        subtitle: {
-           text: 'Penjualan',
-           style: {
-                    fontSize: '15px',
-                    fontFamily: 'Verdana, sans-serif'
-            }
-        },
-        plotOptions: {
-            column: {
-                depth: 25
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        xAxis: {
-            categories:  <?php echo json_encode($bulan);?>
-        },
-        exporting: { 
-            enabled: false 
-        },
-        yAxis: {
-            title: {
-                text: 'Jumlah'
-            },
-        },
-        tooltip: {
-             formatter: function() {
-                 return 'The value for <b>' + this.x + '</b> is <b>' + Highcharts.numberFormat(this.y,0) + '</b>, in '+ this.series.name;
-             }
-          },
-        series: [{
-            name: 'Report Data',
-            data: <?php echo json_encode($value);?>,
-            shadow : true,
-            dataLabels: {
-                enabled: true,
-                color: '#045396',
-                align: 'center',
-                formatter: function() {
-                     return Highcharts.numberFormat(this.y, 0);
-                }, // one decimal
-                y: 0, // 10 pixels down from the top
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
-        }]
-    });
-});
-</script>
 
 </body>
 </html>

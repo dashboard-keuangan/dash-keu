@@ -146,8 +146,47 @@ class Pages extends CI_Controller {
 		$data['results'] = $this->m_keuangan->pencarian($keyword, $tabel);
 		$this->load->view('search',$data);
 	}
+	
+	public function delete_masuk($id) {
+		$this->m_keuangan->delete_pemasukan($id);
+		$this->session->set_flashdata('delete_ok', TRUE);
+		redirect('pages/pemasukan', 'location');
+	}
 
-	public function error_404() {
-		$this->load->view('404');
+	public function delete_keluar($id) {
+		$this->m_keuangan->delete_pengeluaran($id);
+		$this->session->set_flashdata('delete_ok', TRUE);
+		redirect('pages/pengeluaran', 'location');
+	}
+
+	public function edit_data_masuk($id) {
+		if ($this->input->post()){
+			$data['kode'] = $this->input->post('kode');
+			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
+			$data['tanggal'] = $this->input->post('tanggal');
+			$data['keterangan'] = $this->input->post('keterangan');
+			$data['jumlah'] = $this->input->post('jumlah');
+
+			$this->m_keuangan->update_masuk($data, $id);
+			$this->session->set_flashdata('update_ok', 'Success!');
+			redirect('pages/pemasukan', 'location');
+		}
+		$data['edit'] = $this->m_keuangan->get_pem_by_id($id);
+		$this->load->view('edit_data', $data);
+	}
+
+	public function edit_data_keluar($id) {
+		if ($this->input->post()){
+			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
+			$data['tanggal'] = $this->input->post('tanggal');
+			$data['keterangan'] = $this->input->post('keterangan');
+			$data['jumlah'] = $this->input->post('jumlah');
+
+			$this->m_keuangan->update_keluar($data, $id);
+			$this->session->set_flashdata('update_ok', 'Success!');
+			redirect('pages/pengeluaran', 'location');
+		}
+		$data['edit'] = $this->m_keuangan->get_peng_by_id($id);
+		$this->load->view('edit_data', $data);
 	}
 }

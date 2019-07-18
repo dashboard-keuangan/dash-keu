@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
@@ -112,3 +114,6 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
+  
+</body>
+</html>

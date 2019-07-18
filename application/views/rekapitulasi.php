@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Blank :: DashKeu</title>
+  <title>Rekapitulasi :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Date picker -->
-  <link rel="stylesheet" href="http://[::1]/kaskeuangan/assets/pixeladmin-lite/plugins/datepicker/css/datepicker.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
@@ -76,23 +76,30 @@ to get the desired effect
               </div>
               <div class="card-body">
                 <div class="col-sm-12">
-                  <div class="white-box">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <input type="text" name="tanggal_awal" data-date-format="yyyy-mm-dd" readonly id="tanggal_awal" placeholder="Tanggal Awal" class="form-control form-control-line tgl">
+                  <form role="form" method="GET">
+                    <div class="white-box">
+                      <div class="row">
+                          <div class="col-sm">
+                            <input type="date" name="tanggal_awal" class="form-control form-control-line">
+                          </div>
+                          <div class="col-sm-0 text-center">
+                            <span>s/d</span>
+                          </div>
+                          <div class="col-sm">
+                            <input type="date" name="tanggal_akhir" class="form-control form-control-line"> 
+                          </div>
+                          <div class="col-sm-0">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
                       </div>
-                      <div class="col-sm-4">
-                        <input type="text" placeholder="Tanggal Akhir" data-date-format="yyyy-mm-dd" readonly name="tanggal akhir" id="tanggal_akhir" class="form-control form-control-line tgl"> 
+                      <br>
+                      <div class="text-center">
+                        <?php if ($this->input->get('tanggal_awal') && $this->input->get('tanggal_akhir')) { ?>
+                        <h3>Laporan Dana Pemasukan tanggal <?=$this->input->get('tanggal_awal')?> s/d <?=$this->input->get('tanggal_akhir')?></h3>
+                        <?php } ?>
                       </div>
-                      <div class="col-sm-4">
-                        <button type="button" class="btn btn-warning" onclick="back()">Kembali</button>
-                        <button type="button" class="btn btn-primary" onclick="lihat_laporan()" style="margin-right: 5px;">Lihat</button>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="table-responsive">
-                      <div id="isi_tabel">
-                        <table class="table">
+                      <div class="table-responsive">
+                        <table class="table" id="printed">
                           <thead>
                             <tr>
                               <th>No</th>
@@ -103,7 +110,8 @@ to get the desired effect
                         </table>
                       </div>
                     </div>
-                  </div>
+                  </form>
+                  <!-- /form -->
               </div>
               </div>
             </div>
@@ -126,20 +134,6 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
-  
-  <script src="http://[::1]/kaskeuangan/assets/pixeladmin-lite/plugins/datepicker/js/bootstrap-datepicker.js"></script>
 
-  <script>
-	$('.tgl').datepicker();
-	function lihat_laporan() {
-        
-		let tgl_awal = $('#tanggal_awal').val();
-		let tgl_akhir = $('#tanggal_akhir').val();
-		if (tgl_awal=='' || tgl_akhir=='' ) {
-			alert('harap isi tanggal terlebih dulu');
-		}else{
-			$('#isi_tabel').load('lap.php?tgl_awal='+tgl_awal+'&tgl_akhir='+tgl_akhir);
-		}
-		
-	}
-</script>
+</body>
+</html>

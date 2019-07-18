@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
@@ -94,7 +96,7 @@ to get the desired effect
                   </tr>
                 </thead>
                 <tbody>
-                <?php if ($this->input->get('q')=='') { $this->session->set_flashdata('error_search', 'Failed! Value kosong.'); redirect('pages/error_404', 'location'); } else { ?>
+                <?php if ($this->input->get('q')=='') { $this->session->set_flashdata('error_search', 'Failed! Value kosong.'); redirect('error404', 'location'); } else { ?>
                 <h2><?=ucwords($this->input->get('kategori'))?></h2>
                 <?php if ($this->input->get()) { foreach($results as $row){ ?>
                   <?php if ($this->input->get('kategori')=='pemasukan') { ?>
@@ -135,3 +137,6 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
+
+</body>
+</html>

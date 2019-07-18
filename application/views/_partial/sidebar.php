@@ -35,7 +35,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('logout');?>" class="nav-link">
+                <a href="javascript:void(0);" onclink="return false;" class="nav-link logout">
                   <i class="far fa fa-power-off nav-icon"></i>
                   <p>Logout</p>
                 </a>

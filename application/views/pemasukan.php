@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/datatables/dataTables.bootstrap4.css">
   <!-- Theme style -->
@@ -76,6 +78,20 @@ to get the desired effect
                 Tambah Data Pemasukan berhasil!
               </div>
             <?php } ?>
+            <?php if ($this->session->userdata('delete_ok')) {?>
+              <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5><i class="icon fas fa-check"></i> Success!</h5>
+                Hapus Data Pemasukan berhasil!
+              </div>
+            <?php } ?>
+            <?php if ($this->session->userdata('update_ok')) {?>
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5><i class="icon fas fa-check"></i> Success!</h5>
+                Update Data Pemasukan berhasil!
+              </div>
+            <?php } ?>
             <!-- ============================================================== -->
             <!-- End ALERT -->
             <div class="card">
@@ -83,7 +99,6 @@ to get the desired effect
                     <div class="d-flex justify-content-between">
                         <h3 class="card-title p-1">Data Pemasukan</h3>
                         <div>
-                          <span title="Tambah Data"><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-default">Laporan Dana Masuk</button></span>
                           <span title="Tambah Data"><button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">+ Add Entry</button></span>
                         </div>
                     </div>
@@ -111,7 +126,7 @@ to get the desired effect
                         <td><?=$row->tanggal?></td>
                         <td><?=$row->keterangan?></td>
                         <td><?=$row->jumlah?></td>
-                        <td class="text-center"><button class="btn btn-sm btn-warning" href="#"><i class="fas fa-pencil-alt"></i></button> <button class="btn btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i></button></td>
+                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>" data-nama="<?=$row->kode ?>"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                         <?php } ?>
                         </tfoot>
@@ -156,7 +171,7 @@ to get the desired effect
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Tambah Data</button>
                                 </form>
                             </div>
                         </div>
@@ -165,6 +180,27 @@ to get the desired effect
                         <!-- /.modal-dialog -->
                     </div>
                     <!-- /.modal -->
+                    <!-- MODAL:: konfirmasi hapus -->
+                    <div class="modal fade" id="modal_konfirmasi_hapus">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Hapus Data #<span class="detail font-bold"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Apakah Anda yakin akan menghapus data ini?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#" class="btn btn-danger modal-action">Ya</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- / modal konfirmasi hapus -->
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -186,6 +222,8 @@ to get the desired effect
   </aside>
   <!-- /.control-sidebar -->
 
+  <?php $this->load->view('_partial/footer');?>
+  
 <!-- DataTables -->
 <script src="<?=base_url()?>assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?=base_url()?>assets/plugins/datatables/dataTables.bootstrap4.js"></script>
@@ -193,14 +231,19 @@ to get the desired effect
 <script>
   $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
   });
 </script>
-  <?php $this->load->view('_partial/footer');?>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#modal_konfirmasi_hapus').on('show.bs.modal', function (e) {
+      var btn = $(e.relatedTarget);
+
+      var modal = $(this);
+      modal.find('.modal-title span.detail').text(`${btn.data('nama')}`);
+      modal.find('.modal-action').attr('href', `<?=base_url()?>pages/delete_masuk/${btn.data('id')}`);
+    });
+  })
+</script>
+
+</body>
+</html>

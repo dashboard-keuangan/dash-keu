@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
@@ -90,13 +92,13 @@ to get the desired effect
         <!-- ============================================================== -->
         <!-- End ALERT -->
         <!-- ============================================================== -->
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
           <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp. <?=$pemasukan;?></h3>
+                <h3>Rp. <?php if (!$pemasukan) { echo '0'; } else { echo $pemasukan;} ?></h3>
 
                 <p>Total Pemasukan</p>
               </div>
@@ -111,7 +113,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp. <?=$pengeluaran;?></h3>
+                <h3>Rp. <?php if (!$pengeluaran) { echo '0'; } else { echo $pengeluaran;} ?></h3>
 
                 <p>Total Pengeluaran</p>
               </div>
@@ -126,9 +128,9 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>Rp.<?=$pemasukan-$pengeluaran;?></h3>
+                <h3>Rp. <?=$pemasukan-$pengeluaran;?></h3>
 
-                <p>Total Saldo</p>
+                <p>Sisa Saldo</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -882,3 +884,6 @@ $(function () {
   })
 })
 </script>
+
+</body>
+</html>

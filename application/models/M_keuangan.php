@@ -9,11 +9,11 @@ class M_keuangan extends CI_Model {
 	}
 	public function add_pemasukan($data) {
 		return $this->db->insert($this->table_pemasukan, $data);
-    }
+  }
 	public function get_pem_by_id($id) {
 		return $this->db->get_where($this->table_pemasukan, array('id' => $id))->result_array();
-    }
-    public function get_pengeluaran() {
+  }
+  public function get_pengeluaran() {
 		return $this->db->get($this->table_pengeluaran)->result();
 	}
 	public function add_pengeluaran($data) {
@@ -54,4 +54,19 @@ class M_keuangan extends CI_Model {
       return $row->jumlah;
     }
   }
+  public function delete_pemasukan($id) {
+    return $this->db->delete($this->table_pemasukan, array('id' => $id));
+  }
+  public function delete_pengeluaran($id) {
+    return $this->db->delete($this->table_pengeluaran, array('id' => $id));
+  }
+
+  public function update_masuk($data, $id) {
+		$this->db->where('id', $id);
+		return $this->db->update($this->table_pemasukan, $data);
+  }
+  public function update_keluar($data, $id) {
+		$this->db->where('id', $id);
+		return $this->db->update($this->table_pengeluaran, $data);
+	}
 }
