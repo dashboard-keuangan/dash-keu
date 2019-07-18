@@ -101,7 +101,7 @@ to get the desired effect
                 <p>Total Pemasukan</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-archive"></i>
               </div>
               <a href="<?=base_url('pages/pemasukan')?>" class="small-box-footer">Lihat rincian <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -116,7 +116,7 @@ to get the desired effect
                 <p>Total Pengeluaran</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-arrow-graph-up-right"></i>
               </div>
               <a href="<?=base_url('pages/pengeluaran')?>" class="small-box-footer">Lihat rincian <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -131,7 +131,7 @@ to get the desired effect
                 <p>Total Saldo</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="ion ion-filing"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
