@@ -98,7 +98,7 @@ to get the desired effect
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <h3 class="card-title p-1">Data Pengeluaran</h3>
-                        <span title="Tambah Data"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default">+ Add Entry</button></span>
+                        <span title="Tambah Data"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default">Tambah Data Pengeluaran</button></span>
                     </div>
                 </div>
                 <div class="card-body">
@@ -195,6 +195,16 @@ to get the desired effect
                     <!-- / modal konfirmasi hapus -->
                 </div>
                 <!-- /.card-body -->
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 offset-md-8">
+                  <div class="card text-white bg-danger mb-3" >
+                    <div class="card-header">Total Pengeluaran</div>
+                    <div class="card-body"><h5 class="card-title">Rp. <?=$total;?></h5></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- /.card -->
           </div>

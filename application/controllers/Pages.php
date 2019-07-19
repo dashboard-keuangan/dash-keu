@@ -117,6 +117,7 @@ class Pages extends CI_Controller {
 			redirect('pages/pemasukan', 'refresh');
 		}
 		$data['pemasukan'] = $this->m_keuangan->get_pemasukan();
+		$data['total'] = $this->m_keuangan->get_total_masuk();
 		$this->load->view('pemasukan', $data);
 	}
 
@@ -131,6 +132,7 @@ class Pages extends CI_Controller {
 			$this->session->set_flashdata('add_peng_ok', 'Success!');
 			redirect('pages/pengeluaran', 'refresh');
 		}
+		$data['total'] = $this->m_keuangan->get_total_keluar();
 		$data['pengeluaran'] = $this->m_keuangan->get_pengeluaran();
 		$this->load->view('pengeluaran',$data);
 	}
