@@ -88,8 +88,8 @@ class Auth extends CI_Controller {
       $data['username'] = $this->input->post('username');
       $data['nama'] = $this->input->post('nama');
       $data['password'] = sha1($this->input->post('password'));
-      $data['password-v'] = sha1($this->input->post('password-v'));
-      if ($data['password']==$data['password-v']){
+      $ver['password-v'] = sha1($this->input->post('password-v'));
+      if ($data['password']==$ver['password-v']){
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username', 'password', 'is_unique[user.username]');
         if ($this->form_validation->run()) {
