@@ -76,7 +76,9 @@ class Pages extends CI_Controller {
 	}
 
 	public function settings() {
-		$this->load->view('settings');
+		$id = $this->session->userdata('dash_keu_id');
+		$data['profil'] = $this->m_user->get_user_by_id($id);
+		$this->load->view('settings', $data);
 	}
 
 	public function chart() {

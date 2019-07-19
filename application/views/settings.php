@@ -93,24 +93,26 @@ to get the desired effect
                       <input type="password" class="form-control form-control-line" name="password" id="username" placeholder="Retype New Password">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Pertanyaan Keamanan</label>
-                    <div class="col-md-12">
-                      <select class="custom-select" id="pertanyaan" name="pertanyaan">
-                        <option selected>Pilih Pertanyaan</option>
-                        <option value="Apa warna kesukaan anda ?">Apa warna kesukaan anda ?</option>
-                        <option value="Dimanakah ibu anda dilahirkan ?">Dimanakah ibu anda dilahirkan ?</option>
-                        <option value="Apa nama hewan peliharaan anda ?">Apa nama hewan peliharaan anda ?</option>
-                        <option value="Siapa nama teman kecil anda ?">Siapa nama teman kecil anda ?</option>
-                      </select>
+                  <?php foreach ($profil as $row) { ?>
+                    <div class="form-group">
+                      <label class="col-md-12">Pertanyaan Keamanan</label>
+                      <div class="col-md-12">
+                        <select class="custom-select" id="pertanyaan" name="pertanyaan">
+                          <option selected><?=$row->pertanyaan;?></option>
+                          <option value="Apa warna kesukaan anda ?">Apa warna kesukaan anda ?</option>
+                          <option value="Dimanakah ibu anda dilahirkan ?">Dimanakah ibu anda dilahirkan ?</option>
+                          <option value="Apa nama hewan peliharaan anda ?">Apa nama hewan peliharaan anda ?</option>
+                          <option value="Siapa nama teman kecil anda ?">Siapa nama teman kecil anda ?</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Jawaban</label>
-                    <div class="col-md-12">
-                      <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="Masukkan Jawaban">
+                    <div class="form-group">
+                      <label class="col-md-12">Jawaban</label>
+                      <div class="col-md-12">
+                        <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="<?=$row->jawaban;?>">
+                      </div>
                     </div>
-                  </div>
+                    <?php } ?>
                   <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-warning" type="submit">Change Password</button>
