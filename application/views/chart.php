@@ -16,7 +16,7 @@
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="http://[::1]/dash-keu/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/additional.css">
