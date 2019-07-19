@@ -75,7 +75,7 @@ to get the desired effect
                 <h5 class="widget-user-desc">Founder & CEO</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/inu.png" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -121,7 +121,7 @@ to get the desired effect
                 <h5 class="widget-user-desc">Founder & CEO</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/ahmad.jpg" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -167,7 +167,7 @@ to get the desired effect
                 <h5 class="widget-user-desc">Founder & CEO</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+                <img class="img-circle elevation-2" src="<?=base_url();?>assets/dist/img/adisca.jpg" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -259,7 +259,7 @@ to get the desired effect
                 <h5 class="widget-user-desc">Web Designer</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="<?=base_url();?>assets/dist/img/user3-128x128.jpg" alt="User Avatar">
+                <img class="img-circle" src="<?=base_url();?>assets/dist/img/johan.jpg" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
