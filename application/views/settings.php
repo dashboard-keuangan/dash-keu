@@ -94,6 +94,24 @@ to get the desired effect
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="col-md-12">Pertanyaan Keamanan</label>
+                    <div class="col-md-12">
+                      <select class="custom-select" id="pertanyaan" name="pertanyaan">
+                        <option selected>Pilih Pertanyaan</option>
+                        <option value="Apa warna kesukaan anda ?">Apa warna kesukaan anda ?</option>
+                        <option value="Dimanakah ibu anda dilahirkan ?">Dimanakah ibu anda dilahirkan ?</option>
+                        <option value="Apa nama hewan peliharaan anda ?">Apa nama hewan peliharaan anda ?</option>
+                        <option value="Siapa nama teman kecil anda ?">Siapa nama teman kecil anda ?</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Jawaban</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="Masukkan Jawaban">
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-warning" type="submit">Change Password</button>
                       <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>

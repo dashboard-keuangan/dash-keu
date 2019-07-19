@@ -19,9 +19,42 @@ class Auth extends CI_Controller {
 	public function register() {
 		$this->load->view('auth/register');
   }
-  
-  public function recover() {
+
+  public function act_rec_pwd(){
+    $id = $this->session->userdata('dash_keu_id');
+    $username = $this->session->userdata('dash_keu_username');
+    $pertanyaan = $this->session->userdata('dash_keu_pertanyaan');
+    $jawaban = $this->session->userdata('dash_keu_jawaban');
+    $data = $this->m_user->get_user_by_username($username, $pertanyaan, $jawaban);
+
+    $data['password'] = $this->input->post('newpassword');
+
+    $this->m_user->update_user($data, $id);
+  }
+
+  public function rec_pwd() {
+    $this->load->view('auth/rec_pwd');
+  }
+
+  public function act_recover() {
     $this->load->view('auth/recover');
+    if ($this->input->post()){
+      $username = $this->input->post('username');
+      $pertanyaan = $this->input->post('pertanyaan');
+      $jawaban = $this->input->post('jawaban');
+
+      $data = $this->m_user->get_user_by_username($username, $pertanyaan, $jawaban);
+      if (!$data){
+        $this->session->set_flashdata('recover-gagal', "GAGAL");
+        redirect('auth/act_recover', 'location');
+      } else {
+        $this->session->set_userdata('dash_keu_id', $data[0]['id']);
+        $this->session->set_userdata('dash_keu_username', $data[0]['username']);
+        $this->session->set_userdata('dash_keu_pertanyaan', $data[0]['pertanyaan']);
+        $this->session->set_userdata('dash_keu_jawaban', $data[0]['jawaban']);
+        redirect('auth/rec_pwd', 'location');
+      }
+    }
   }
 
   public function logout() {

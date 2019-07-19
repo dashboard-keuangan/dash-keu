@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Log in :: DashKeu</title>
+  <title>Recover Password :: DashKeu</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,59 +28,38 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Masukan ID dan Pertanyaan Keamanan</p>
       <!-- Alert START -->
-      <?php if ($this->session->userdata('login-gagal')) {?>
+      <?php if ($this->session->userdata('recover-gagal')) {?>
         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-ban"></i> Failed!</h5>
-          Username / password salah.
+          Password tidak sama!.
         </div>
       <?php } ?>
-      <?php if ($this->session->userdata('register_ok')) {?>
+      <?php if ($this->session->userdata('recover-berhasil')) {?>
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-check"></i> Success!</h5>
-          Registrasi berhasil!
+          Recover Password Berhasil!
         </div>
       <?php } ?>
       <!-- Alert END -->
-      <form action="<?=base_url('auth/act_login')?>" method="POST">
+      <form action="<?=base_url('auth/act_rec_pwd')?>" method="POST">
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Username">
-          <div class="input-group-append input-group-text">
-              <span class="far fa-user"></span>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input id="password-field" type="password" name="password" class="form-control" placeholder="Password">
+          <input id="password-field" type="newpassword" name="newpassword" class="form-control" placeholder="New Password">
           <div class="input-group-append input-group-text">
               <span toggle="#password-field" class="far fa-eye-slash toggle-password" title="Show/hide password"></span>
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <div class="col-6 offset-md-6">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      <p class="mb-1">
-        <a href="<?=base_url('auth/act_recover')?>">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="<?=base_url('auth/register')?>" class="text-center">Register</a>
-      </p>
     </div>
     <!-- /.login-card-body -->
   </div>

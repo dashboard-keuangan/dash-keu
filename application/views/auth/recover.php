@@ -1,93 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="css/colors/green-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Recover Password :: DashKeu</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper">
-        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">        
-            <div class="login-box card">
-            <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
-                    <h3 class="box-title m-b-20">Recover Password</h3>
-                    <div class="form-group ">
-                      <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="Name">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="Email">
-                      </div>
-                    </div>
-                    <div class="form-group text-center m-t-20">
-                      <div class="col-xs-12">
-                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
-                      </div>
-                    </div>
-                  </form>
-            </div>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?=base_url();?>/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?=base_url();?>/assets/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="<?=base_url();?>"><b>Dash</b>Keu</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Masukan ID dan Pertanyaan Keamanan</p>
+      <!-- Alert START -->
+      <?php if ($this->session->userdata('recover-gagal')) {?>
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-ban"></i> Failed!</h5>
+          Username / Pertanyaan Keamanan Salah!.
+        </div>
+      <?php } ?>
+      <!-- Alert END -->
+      <form action="<?=base_url('auth/act_recover')?>" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+          <div class="input-group-append input-group-text">
+              <span class="far fa-user"></span>
           </div>
         </div>
-        
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!--stickey kit -->
-    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-</body>
+        <div class="input-group mb-3">
+            <select class="custom-select" id="pertanyaan" name="pertanyaan">
+                <option selected>Pilih Pertanyaan</option>
+                <option value="Apa warna kesukaan anda ?">Apa warna kesukaan anda ?</option>
+                <option value="Dimanakah ibu anda dilahirkan ?">Dimanakah ibu anda dilahirkan ?</option>
+                <option value="Apa nama hewan peliharaan anda ?">Apa nama hewan peliharaan anda ?</option>
+                <option value="Siapa nama teman kecil anda ?">Siapa nama teman kecil anda ?</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="Masukkan Jawaban">
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-4 offset-md-8">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Process</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
+<!-- jQuery -->
+<script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+$(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye-slash fa-eye");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+</script>
+</body>
 </html>

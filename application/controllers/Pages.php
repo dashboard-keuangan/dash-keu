@@ -40,7 +40,6 @@ class Pages extends CI_Controller {
 		$data['education'] = $this->input->post('education');
 		$data['notes'] = $this->input->post('notes');
 
-		$this->m_user->update_user($data, $id);
 		$this->session->set_flashdata('update_berhasil', TRUE);
 		$this->session->set_userdata('dash_keu_nama', $data['nama']);
 		redirect('/', 'location');
@@ -53,6 +52,8 @@ class Pages extends CI_Controller {
 		} elseif ($this->input->post('password0') == $this->input->post('password')) {
 			$id = $this->session->userdata('dash_keu_id');
 			$data['password'] = sha1($this->input->post('password0'));
+			$data['pertanyaan'] = $this->input->post('pertanyaan');
+			$data['jawaban'] = $this->input->post('jawaban');
 
 			$this->m_user->update_user($data, $id);
 			$this->session->set_flashdata('ubahpass_berhasil', TRUE);

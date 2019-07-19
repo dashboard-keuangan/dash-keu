@@ -138,6 +138,10 @@
                         <h4 class="font-medium m-t-30">Bio</h4>
                         <p class="m-t-30"><?=$row->bio; ?></p>
                         <div class="post clearfix"></div>
+                        <h4 class="font-medium m-t-30">Pertanyaan Keamanan</h4>
+                        <p class="m-t-30"><?=$row->pertanyaan; ?></p>
+                        <input type="text" class="form-control form-control-line" value="<?=$row->jawaban; ?>" name="education" disabled>
+                        <div class="post clearfix"></div>
                     </div>
                     <?php } ?>
                   </div>
