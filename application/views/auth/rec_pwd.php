@@ -28,15 +28,8 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Masukan ID dan Pertanyaan Keamanan</p>
+      <p class="login-box-msg">Masukan Password Baru</p>
       <!-- Alert START -->
-      <?php if ($this->session->userdata('recover-gagal')) {?>
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h5><i class="icon fas fa-ban"></i> Failed!</h5>
-          Password tidak sama!.
-        </div>
-      <?php } ?>
       <?php if ($this->session->userdata('recover-berhasil')) {?>
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -45,7 +38,7 @@
         </div>
       <?php } ?>
       <!-- Alert END -->
-      <form action="<?=base_url('auth/act_rec_pwd')?>" method="POST">
+      <form action="<?=base_url('pages/act_rec_pwd')?>" method="POST">
         <div class="input-group mb-3">
           <input id="password-field" type="newpassword" name="newpassword" class="form-control" placeholder="New Password">
           <div class="input-group-append input-group-text">
@@ -54,8 +47,17 @@
         </div>
         <div class="row">
           <!-- /.col -->
-          <div class="col-6 offset-md-6">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
+          <div class="col-12 mb-3">
+            <button type="submit" class="btn btn-primary btn-block btn-flat" style="width: 100%">Change Password</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      <form action="<?=base_url('auth/logout')?>" method="POST">
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block btn btn-secondary">Login</button>
           </div>
           <!-- /.col -->
         </div>

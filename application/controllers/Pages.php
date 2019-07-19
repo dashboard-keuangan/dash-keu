@@ -64,6 +64,17 @@ class Pages extends CI_Controller {
 		}
 	}
 
+	public function act_rec_pwd(){
+		$id = $this->session->userdata('dash_keu_id');
+		$data['password'] = sha1($this->input->post('newpassword'));
+
+		$this->m_user->update_user($data, $id);
+		$this->session->set_flashdata('recover-berhasil', "BERHASIL");
+		$array_val = array('dash_keu_id','dash_keu_username', 'dash_keu_nama');
+    	$this->session->unset_userdata($array_val);
+		redirect('auth/rec_pwd', 'location');
+	}
+
 	public function settings() {
 		$this->load->view('settings');
 	}

@@ -20,18 +20,6 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/register');
   }
 
-  public function act_rec_pwd(){
-    $id = $this->session->userdata('dash_keu_id');
-    $username = $this->session->userdata('dash_keu_username');
-    $pertanyaan = $this->session->userdata('dash_keu_pertanyaan');
-    $jawaban = $this->session->userdata('dash_keu_jawaban');
-    $data = $this->m_user->get_user_by_username($username, $pertanyaan, $jawaban);
-
-    $data['password'] = $this->input->post('newpassword');
-
-    $this->m_user->update_user($data, $id);
-  }
-
   public function rec_pwd() {
     $this->load->view('auth/rec_pwd');
   }
@@ -50,8 +38,7 @@ class Auth extends CI_Controller {
       } else {
         $this->session->set_userdata('dash_keu_id', $data[0]['id']);
         $this->session->set_userdata('dash_keu_username', $data[0]['username']);
-        $this->session->set_userdata('dash_keu_pertanyaan', $data[0]['pertanyaan']);
-        $this->session->set_userdata('dash_keu_jawaban', $data[0]['jawaban']);
+        $this->session->set_userdata('dash_keu_nama', $data[0]['nama']);
         redirect('auth/rec_pwd', 'location');
       }
     }
