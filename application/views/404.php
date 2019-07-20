@@ -71,7 +71,7 @@ to get the desired effect
           <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
 
           <p>
-            <!-- Start ALERT -->
+            <!-- Start Content -->
             <!-- ============================================================== -->
             <?php if ($this->session->flashdata('error_search')) {?>
               Maaf, halaman yang anda cari tidak ada. Value pada kotak pencarian kosong.<hr/> Coba untuk mengisi kotak pencarian.
@@ -93,11 +93,15 @@ to get the desired effect
                 <!-- /.input-group -->
               </form>
             <?php } else { ?>
-                We could not find the page you were looking for. Meanwhile, you may return to <a href="<?=base_url()?>">dashboard</a> or try using the search form.
+                We could not find the page you were looking for. Meanwhile, you may return to <a href="<?=base_url()?>">dashboard</a>.
             <?php } ?>
             <!-- ============================================================== -->
-            <!-- End ALERT -->
+            <!-- End Content -->
           </p>
+
+          <div class="input-group">
+          </div>
+          <!-- /.input-group -->
         </div>
         <!-- /.error-content -->
       </div>
