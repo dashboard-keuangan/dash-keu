@@ -30,18 +30,25 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
       <!-- Alert START -->
-      <?php if ($this->session->userdata('login-gagal')) {?>
+      <?php if ($this->session->flashdata('login_fail')) {?>
         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-ban"></i> Failed!</h5>
           Username / password salah.
         </div>
       <?php } ?>
-      <?php if ($this->session->userdata('register_ok')) {?>
+      <?php if ($this->session->flashdata('register_ok')) {?>
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-check"></i> Success!</h5>
           Registrasi berhasil!
+        </div>
+      <?php } ?>
+      <?php if ($this->session->flashdata('recover_ok')) {?>
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-check"></i> Success!</h5>
+          Recover password berhasil!
         </div>
       <?php } ?>
       <!-- Alert END -->
@@ -76,7 +83,7 @@
       </form>
 
       <p class="mb-1">
-        <a href="<?=base_url('auth/act_recover')?>">I forgot my password</a>
+        <a href="<?=base_url('auth/recover')?>">I forgot my password</a>
       </p>
       <p class="mb-0">
         <a href="<?=base_url('auth/register')?>" class="text-center">Register</a>

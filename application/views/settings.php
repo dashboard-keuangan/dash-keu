@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Setting :: DashKeu</title>
+  <title>Settings :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
@@ -49,12 +49,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Change Password</h1>
+            <h1 class="m-0 text-dark">Settings</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Change Password</li>
+              <li class="breadcrumb-item active">Settings</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -65,6 +65,7 @@ to get the desired effect
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+        <!-- ALERT start -->
         <?php if ($this->session->userdata('ubahpass_gagal')) {?>
           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -72,15 +73,15 @@ to get the desired effect
             Update password gagal! Value tidak sama.
           </div>
         <?php } ?>
+        <!-- ALERT end -->
         <div class="row">
           <div class="col">
-            <!-- Profile Image -->
             <div class="card">
               <div class="card-header no-border">
                 <h3 class="card-title">Change Password</h3>
               </div>
               <div class="card-body">
-                <form class="form-horizontal form-material" action="<?=base_url('pages/act_passwd')?>" method="POST">
+                <form class="form-horizontal form-material" role="form" method="POST">
                   <div class="form-group">
                     <label class="col-md-12">New Password</label>
                     <div class="col-md-12">
@@ -93,6 +94,25 @@ to get the desired effect
                       <input type="password" class="form-control form-control-line" name="password" id="username" placeholder="Retype New Password">
                     </div>
                   </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <button class="btn btn-warning" type="submit" name="submit1">Change Password</button>
+                      <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
+                    </div>
+                  </div>
+                </form>
+                <!-- /form -->
+                * Nilai kosong tidak akan mengubah password
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Change Security</h3>
+              </div>
+              <div class="card-body">
+                <form class="form-horizontal form-material" role="form" method="POST">
                   <?php foreach ($profil as $row) { ?>
                     <div class="form-group">
                       <label class="col-md-12">Pertanyaan Keamanan</label>
@@ -109,19 +129,18 @@ to get the desired effect
                     <div class="form-group">
                       <label class="col-md-12">Jawaban</label>
                       <div class="col-md-12">
-                        <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="<?=$row->jawaban;?>">
+                        <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" value="<?=$row->jawaban;?>">
                       </div>
                     </div>
-                    <?php } ?>
-                  <div class="form-group">
+                    <div class="form-group">
                     <div class="col-sm-12">
-                      <button class="btn btn-warning" type="submit">Change Password</button>
+                      <button class="btn btn-success" type="submit" name="submit2">Change security</button>
                       <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
                     </div>
                   </div>
+                  <?php } ?>
                 </form>
                 <!-- /form -->
-                * Nilai kosong tidak akan mengubah password
               </div>
               <!-- /.card-body -->
             </div>

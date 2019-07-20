@@ -30,38 +30,38 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masukan Password Baru</p>
       <!-- Alert START -->
-      <?php if ($this->session->userdata('recover-berhasil')) {?>
-        <div class="alert alert-success alert-dismissible">
+      <?php if ($this->session->flashdata('recover_problem')) {?>
+        <div class="alert alert-warning alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h5><i class="icon fas fa-check"></i> Success!</h5>
-          Recover Password Berhasil!
+          <h5><i class="icon fas fa-check"></i> Warning!</h5>
+          Password Tidak sama!
         </div>
       <?php } ?>
       <!-- Alert END -->
-      <form action="<?=base_url('pages/act_rec_pwd')?>" method="POST">
+      <form role="form" method="POST">
         <div class="input-group mb-3">
-          <input id="password-field" type="newpassword" name="newpassword" class="form-control" placeholder="New Password">
+          <input id="password-field" type="text" name="newpassword" class="form-control" placeholder="New Password">
           <div class="input-group-append input-group-text">
-              <span toggle="#password-field" class="far fa-eye-slash toggle-password" title="Show/hide password"></span>
+              <span toggle="#password-field" class="far fa-eye toggle-password" title="Show/hide password"></span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input id="password-field-v" type="text" name="ver" class="form-control" placeholder="Re-type New Password">
+          <div class="input-group-append input-group-text">
+              <span toggle="#password-field-v" class="far fa-eye toggle-password-v" title="Show/hide password"></span>
           </div>
         </div>
         <div class="row">
           <!-- /.col -->
           <div class="col-12 mb-3">
-            <button type="submit" class="btn btn-primary btn-block btn-flat" style="width: 100%">Change Password</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-      <form action="<?=base_url('auth/logout')?>" method="POST">
-        <div class="row">
-          <!-- /.col -->
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block btn btn-secondary">Login</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+      <p class="mb-1">
+        <a href="<?=base_url('auth')?>">Login</a>
+      </p>
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -76,7 +76,18 @@
 <script type="text/javascript">
 $(".toggle-password").click(function() {
 
-$(this).toggleClass("fa-eye-slash fa-eye");
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+
+$(".toggle-password-v").click(function() {
+
+$(this).toggleClass("fa-eye fa-eye-slash");
 var input = $($(this).attr("toggle"));
 if (input.attr("type") == "password") {
   input.attr("type", "text");

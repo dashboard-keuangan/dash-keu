@@ -21,10 +21,24 @@ class Auth extends CI_Controller {
   }
 
   public function rec_pwd() {
+    if ($this->input->post()) {
+      if ($this->input->post('newpassword') == $this->input->post('ver')) {
+        $id = $this->session->userdata('recover_id');
+        $data['password'] = sha1($this->input->post('newpassword'));
+        $this->m_user->update_user($data, $id);
+
+        $this->session->set_flashdata('recover_ok', TRUE);
+        $this->session->unset_userdata('recover_id');
+        redirect('auth', 'location');
+      } else {
+        $this->session->set_flashdata('recover_problem', TRUE);
+        redirect('auth/rec_pwd', 'refresh');
+      }
+    }
     $this->load->view('auth/rec_pwd');
   }
 
-  public function act_recover() {
+  public function recover() {
     $this->load->view('auth/recover');
     if ($this->input->post()){
       $username = $this->input->post('username');
@@ -33,12 +47,10 @@ class Auth extends CI_Controller {
 
       $data = $this->m_user->get_user_by_username($username, $pertanyaan, $jawaban);
       if (!$data){
-        $this->session->set_flashdata('recover-gagal', "GAGAL");
-        redirect('auth/act_recover', 'location');
+        $this->session->set_flashdata('recover_fail', TRUE);
+        redirect('auth/recover', 'location');
       } else {
-        $this->session->set_userdata('dash_keu_id', $data[0]['id']);
-        $this->session->set_userdata('dash_keu_username', $data[0]['username']);
-        $this->session->set_userdata('dash_keu_nama', $data[0]['nama']);
+        $this->session->set_userdata('recover_id', $data[0]['id']);
         redirect('auth/rec_pwd', 'location');
       }
     }
@@ -58,7 +70,7 @@ class Auth extends CI_Controller {
 
 			$data = $this->m_user->get_user($username, $pwd);
 			if (!$data) {
-				$this->session->set_flashdata('login-gagal', "GAGAL");
+				$this->session->set_flashdata('login_fail', "GAGAL");
 				redirect('auth', 'location');
 			} else {
 				$this->session->set_userdata('dash_keu_id', $data[0]['id']);

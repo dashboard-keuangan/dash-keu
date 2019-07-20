@@ -89,6 +89,20 @@ to get the desired effect
             Update password tidak dilakukan! Value kosong.
           </div>
         <?php } ?>
+        <?php if ($this->session->userdata('security_ok')) {?>
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-check"></i> Success!</h5>
+            Update security success!.
+          </div>
+        <?php } ?>
+        <?php if ($this->session->userdata('security_kosong')) {?>
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-check"></i> Info!</h5>
+            Update security tidak dilakukan! Value kosong.
+          </div>
+        <?php } ?>
         <!-- ============================================================== -->
         <!-- End ALERT -->
         <!-- ============================================================== -->

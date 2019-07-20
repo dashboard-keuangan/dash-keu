@@ -45,37 +45,38 @@ class Pages extends CI_Controller {
 		redirect('/', 'location');
 	}
 
-	public function act_passwd() {
-		if (($this->input->post('password0') && $this->input->post('password')) == '') {
-			$this->session->set_flashdata('ubahpass_kosong', TRUE);
-			redirect('/', 'location');
-		} elseif ($this->input->post('password0') == $this->input->post('password')) {
-			$id = $this->session->userdata('dash_keu_id');
-			$data['password'] = sha1($this->input->post('password0'));
-			$data['pertanyaan'] = $this->input->post('pertanyaan');
-			$data['jawaban'] = $this->input->post('jawaban');
-
-			$this->m_user->update_user($data, $id);
-			$this->session->set_flashdata('ubahpass_berhasil', TRUE);
-			redirect('/', 'location');
-		} else {
-			$this->session->set_flashdata('ubahpass_gagal', TRUE);
-			redirect('pages/settings', 'location');
-		}
-	}
-
-	public function act_rec_pwd(){
-		$id = $this->session->userdata('dash_keu_id');
-		$data['password'] = sha1($this->input->post('newpassword'));
-
-		$this->m_user->update_user($data, $id);
-		$this->session->set_flashdata('recover-berhasil', "BERHASIL");
-		$array_val = array('dash_keu_id','dash_keu_username', 'dash_keu_nama');
-    	$this->session->unset_userdata($array_val);
-		redirect('auth/rec_pwd', 'location');
-	}
-
 	public function settings() {
+		if ($this->input->post()){
+			if ($this->input->post('submit1')){
+				if (($this->input->post('password0') && $this->input->post('password')) == '') {
+					$this->session->set_flashdata('ubahpass_kosong', TRUE);
+					redirect('/', 'location');
+				} elseif ($this->input->post('password0') == $this->input->post('password')) {
+					$id = $this->session->userdata('dash_keu_id');
+					$data['password'] = sha1($this->input->post('password0'));
+		
+					$this->m_user->update_user($data, $id);
+					$this->session->set_flashdata('ubahpass_berhasil', TRUE);
+					redirect('/', 'location');
+				} else {
+					$this->session->set_flashdata('ubahpass_gagal', TRUE);
+					redirect('pages/settings', 'location');
+				}
+			} else {
+				if ($this->input->post('jawaban')) {
+					$id = $this->session->userdata('dash_keu_id');
+					$data['pertanyaan'] = $this->input->post('pertanyaan');
+					$data['jawaban'] = $this->input->post('jawaban');
+	
+					$this->m_user->update_user($data, $id);
+					$this->session->set_flashdata('security_ok', TRUE);
+					redirect('/', 'location');
+				} else {
+					$this->session->set_flashdata('security_kosong', TRUE);
+					redirect('/', 'location');
+				}
+			}
+		}
 		$id = $this->session->userdata('dash_keu_id');
 		$data['profil'] = $this->m_user->get_user_by_id($id);
 		$this->load->view('settings', $data);

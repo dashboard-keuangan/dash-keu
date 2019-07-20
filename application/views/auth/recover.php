@@ -30,7 +30,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Masukan ID dan Pertanyaan Keamanan</p>
       <!-- Alert START -->
-      <?php if ($this->session->userdata('recover-gagal')) {?>
+      <?php if ($this->session->userdata('recover_fail')) {?>
         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-ban"></i> Failed!</h5>
@@ -38,7 +38,7 @@
         </div>
       <?php } ?>
       <!-- Alert END -->
-      <form action="<?=base_url('auth/act_recover')?>" method="POST">
+      <form role="form" method="POST">
         <div class="input-group mb-3">
           <input type="text" name="username" id="username" class="form-control" placeholder="Username">
           <div class="input-group-append input-group-text">
@@ -56,6 +56,9 @@
         </div>
         <div class="input-group mb-3">
             <input type="text" class="form-control form-control-line" name="jawaban" id="jawaban" placeholder="Masukkan Jawaban">
+            <div class="input-group-append input-group-text">
+              <span class="fas fa-signature"></span>
+          </div>
         </div>
         <div class="row">
           <!-- /.col -->
@@ -65,6 +68,9 @@
           <!-- /.col -->
         </div>
       </form>
+      <p class="mb-1">
+        <a href="<?=base_url('auth')?>">Login</a>
+      </p>
     </div>
     <!-- /.login-card-body -->
   </div>
