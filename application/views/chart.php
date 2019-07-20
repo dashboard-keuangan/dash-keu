@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Teams :: DashKeu</title>
+  <title>Chart :: DashKeu</title>
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>assets/dist/img/favicon.png">
@@ -49,12 +49,12 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Teams</h1>
+            <h1 class="m-0 text-dark">Chart</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
-              <li class="breadcrumb-item active">Teams</li>
+              <li class="breadcrumb-item active">Chart</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -204,12 +204,9 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
-  
-<!-- jQuery -->
-<script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+
 <!-- OPTIONAL SCRIPTS -->
 <script src="<?=base_url()?>assets/plugins/chart.js/Chart.min.js"></script>
-<script src="<?=base_url()?>assets/dist/js/pages/dashboard3.js"></script>
 
 <!-- page script -->
 <script>

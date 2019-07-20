@@ -29,23 +29,4 @@
 <script src="<?=base_url();?>assets/dist/js/demo.js"></script>
 <!-- SweetAlert2 -->
 <script src="<?=base_url();?>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script type="text/javascript">
-  $(function() {
-    $('.logout').click(function() {
-      Swal.fire({
-        title: 'Logout?',
-        text: "Sesi anda akan dihapus!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, logout!'
-      }).then((result) => {
-        if (result.value) {
-          window.location = "<?=base_url('auth/logout')?>";
-        }
-      });
-    });
-
-  });
-</script>
+<script src="<?=base_url();?>assets/dist/js/logout.js"></script>
