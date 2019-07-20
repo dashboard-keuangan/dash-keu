@@ -95,18 +95,17 @@ to get the desired effect
             <!-- ============================================================== -->
             <!-- End ALERT -->
             <div class="card">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between">
-                        <h3 class="card-title p-1">Data Pemasukan</h3>
-                        <div>
-                          <span title="Tambah Data"><button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">Tambah Data Pemasukan</button></span>
-                        </div>
-                    </div>
+              <div class="card-header">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title p-1">Data Pemasukan</h3>
+                  <span title="Tambah Data"><button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">Tambah Data Pemasukan</button></span>
                 </div>
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
                         <th>#</th>
                         <th>Kode</th>
                         <th>No. Kwitansi</th>
@@ -114,12 +113,12 @@ to get the desired effect
                         <th>Keterangan</th>
                         <th>Jumlah</th>
                         <th>Aksi</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $num=1 ?>
-                        <?php foreach ($pemasukan as $row) { ?>
-                        <tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $num=1 ?>
+                      <?php foreach ($pemasukan as $row) { ?>
+                      <tr>
                         <td><?=$num++?></td>
                         <td><?=$row->kode?></td>
                         <td><?=$row->no_kwitansi?></td>
@@ -127,83 +126,88 @@ to get the desired effect
                         <td><?=$row->keterangan?></td>
                         <td><?=$row->jumlah?></td>
                         <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>" data-nama="<?=$row->kode ?>"><i class="fas fa-trash-alt"></i></a></td>
-                        </tr>
-                        <?php } ?>
-                        </tfoot>
-                    </table>
-                    <div class="modal fade" id="modal-default">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">Tambah Data Pemasukan</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form" method="post">                    
-                                    <div class="form-group">
-                                        <label>Kode</label>
-                                        <input class="form-control" name="kode" placeholder="Kode" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>No Kwitansi</label>
-                                        <input class="form-control" name="no_kwitansi" placeholder="No Kwitansi" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tanggal</label>
-                                        <input type="date" class="form-control" name="tanggal">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Keterangan</label>
-                                        <textarea class="form-control" name="keterangan" placeholder="Keterangan"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Jumlah</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                            <span class="input-group-text">Rp</span>
-                                            </div>
-                                            <input type="text" class="form-control" name="jumlah" />
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Tambah Data</button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
-                    <!-- MODAL:: konfirmasi hapus -->
-                    <div class="modal fade" id="modal_konfirmasi_hapus">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title">Hapus Data #<span class="detail font-bold"></span></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
+                      </tr>
+                      <?php } ?>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+                
+                <div class="modal fade" id="modal-default">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Tambah Data Pemasukan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form role="form" method="post">                    
+                          <div class="form-group">
+                            <label>Kode</label>
+                            <input class="form-control" name="kode" placeholder="Kode" />
                           </div>
-                          <div class="modal-body">
-                            <p>Apakah Anda yakin akan menghapus data ini?</p>
+                          <div class="form-group">
+                            <label>No Kwitansi</label>
+                            <input class="form-control" name="no_kwitansi" placeholder="No Kwitansi" />
                           </div>
-                          <div class="modal-footer">
-                            <a href="#" class="btn btn-danger modal-action">Ya</a>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                          <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" class="form-control" name="tanggal">
                           </div>
-                        </div>
+                          <div class="form-group">
+                            <label>Keterangan</label>
+                            <textarea class="form-control" name="keterangan" placeholder="Keterangan"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label>Jumlah</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Rp</span>
+                              </div>
+                              <input type="text" class="form-control" name="jumlah" />
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+                      </div>
+                      <!-- /.modal-body -->
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambah Data</button>
+                        </form>
                       </div>
                     </div>
-                    <!-- / modal konfirmasi hapus -->
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
                 </div>
-                <!-- /.card-body -->
+                <!-- /.modal -->
+                <!-- MODAL:: konfirmasi hapus -->
+                <div class="modal fade" id="modal_konfirmasi_hapus">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Hapus Data #<span class="detail font-bold"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Apakah Anda yakin akan menghapus data ini?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="btn btn-danger modal-action">Ya</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- / modal konfirmasi hapus -->
+              </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
             <div class="container">
               <div class="row">
                 <div class="col-md-4 offset-md-8">
@@ -214,7 +218,7 @@ to get the desired effect
                 </div>
               </div>
             </div>
-            <!-- /.card -->
+            <!-- /.container -->
           </div>
           <!-- /.col -->
         </div>
