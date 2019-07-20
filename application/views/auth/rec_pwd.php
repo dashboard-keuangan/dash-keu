@@ -40,13 +40,13 @@
       <!-- Alert END -->
       <form role="form" method="POST">
         <div class="input-group mb-3">
-          <input id="password-field" type="text" name="newpassword" class="form-control" placeholder="New Password">
+          <input id="password-field" type="text" name="newpassword" class="form-control" placeholder="New Password" required>
           <div class="input-group-append input-group-text">
               <span toggle="#password-field" class="far fa-eye toggle-password" title="Show/hide password"></span>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input id="password-field-v" type="text" name="ver" class="form-control" placeholder="Re-type New Password">
+          <input id="password-field-v" type="text" name="ver" class="form-control" placeholder="Re-type New Password" required>
           <div class="input-group-append input-group-text">
               <span toggle="#password-field-v" class="far fa-eye toggle-password-v" title="Show/hide password"></span>
           </div>
