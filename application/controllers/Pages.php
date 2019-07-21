@@ -40,6 +40,7 @@ class Pages extends CI_Controller {
 		$data['education'] = $this->input->post('education');
 		$data['notes'] = $this->input->post('notes');
 
+		$this->m_user->update_user($data, $id);
 		$this->session->set_flashdata('update_berhasil', TRUE);
 		$this->session->set_userdata('dash_keu_nama', $data['nama']);
 		redirect('/', 'location');
