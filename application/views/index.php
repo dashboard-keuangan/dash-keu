@@ -107,12 +107,15 @@ to get the desired effect
         <!-- End ALERT -->
         <!-- ============================================================== -->
         <!-- Small boxes (Stat box) -->
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Saldo Total <?=date('Y');?></h3></div>
+        </div>
         <div class="row">
           <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp. <?php if (!$pemasukan) { echo '0'; } else { echo $pemasukan;} ?></h3>
+                <h3>Rp. <?php if (!$pemasukan_total) { echo '0'; } else { echo $pemasukan_total;} ?></h3>
 
                 <p>Total Pemasukan</p>
               </div>
@@ -127,7 +130,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp. <?php if (!$pengeluaran) { echo '0'; } else { echo $pengeluaran;} ?></h3>
+                <h3>Rp. <?php if (!$pengeluaran_total) { echo '0'; } else { echo $pengeluaran_total;} ?></h3>
 
                 <p>Total Pengeluaran</p>
               </div>
@@ -142,8 +145,8 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-              <?php $sisa_saldo = $pemasukan-$pengeluaran;?>
-                <h3>Rp. <?=$sisa_saldo;?></h3>
+              <?php $sisa_saldo_total = $pemasukan_total-$pengeluaran_total;?>
+                <h3>Rp. <?=$sisa_saldo_total;?></h3>
 
                 <p>Sisa Saldo</p>
               </div>
@@ -155,14 +158,67 @@ to get the desired effect
           </div>
           <!-- ./col -->
         </div>
+
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Saldo <?=date('Y-m-d');?></h3></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>Rp. <?php if (!$pemasukan_hari) { echo '0'; } else { echo $pemasukan_hari;} ?></h3>
+
+                <p>Total Pemasukan Harian</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-archive"></i>
+              </div>
+              <a href="<?=base_url('pages/pemasukan')?>" class="small-box-footer">Lihat rincian <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>Rp. <?php if (!$pengeluaran_hari) { echo '0'; } else { echo $pengeluaran_hari;} ?></h3>
+
+                <p>Total Pengeluaran Harian</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-arrow-graph-up-right"></i>
+              </div>
+              <a href="<?=base_url('pages/pengeluaran')?>" class="small-box-footer">Lihat rincian <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-12">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+              <?php $sisa_saldo_hari = $pemasukan_hari-$pengeluaran_hari;?>
+                <h3>Rp. <?=$sisa_saldo_hari;?></h3>
+
+                <p>Sisa Saldo Harian</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-filing"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
           <div class="col-lg-6 col-12">
             <!-- PIE CHART -->
-            <div class="card card-warning">
+            <div class="card card-success">
               <div class="card-header text-center">
-                <h3 class="card-title">Chart</h3>
+                <h3 class="card-title">Chart Total</h3>
               </div>
               <div class="card-body">
                 <canvas id="pieChart" style="height:230px"></canvas>
@@ -171,8 +227,21 @@ to get the desired effect
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
           <div class="col-lg-6 col-12">
+            <!-- PIE CHART -->
+            <div class="card card-warning">
+              <div class="card-header text-center">
+                <h3 class="card-title">Chart Total Harian</h3>
+              </div>
+              <div class="card-body">
+                <canvas id="pieChart_day" style="height:230px"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
                 <div class="d-flex justify-content-between">
@@ -254,7 +323,7 @@ to get the desired effect
       ],
       datasets: [
         {
-          data: [<?=$pemasukan?>,<?=$pengeluaran?>,<?=$sisa_saldo?>],
+          data: [<?=$pemasukan_total?>,<?=$pengeluaran_total?>,<?=$sisa_saldo_total?>],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
       ]
@@ -266,9 +335,35 @@ to get the desired effect
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
     var pieChart = new Chart(pieChartCanvas, {
-      type: 'pie',
+      type: 'doughnut',
       data: pieData,
       options: pieOptions      
+    })
+    
+    var donutChartCanvas = $('#pieChart_day').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Pemasukan Harian', 
+          'Pengeluaran Harian',
+          'Sisa Saldo Harian',
+      ],
+      datasets: [
+        {
+          data: [<?=$pemasukan_hari;?>,<?=$pengeluaran_hari;?>,<?=$sisa_saldo_hari;?>],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
     })
     
   })
@@ -309,11 +404,6 @@ $(function () {
           backgroundColor: '#ced4da',
           borderColor    : '#ced4da',
           data           : [700, 1700, 2700, 2000, 1800, 1500, 2000]
-        },
-        {
-          backgroundColor: '#ff8000',
-          borderColor    : '#ff8000',
-          data           : [900, 1100, 2100, 3000, 700, 840, 4000]
         }
       ]
     },

@@ -4,8 +4,8 @@ class M_keuangan extends CI_Model {
   private $table_pemasukan = 'pemasukan';
   private $table_pengeluaran = 'pengeluaran';
   private $table_rekap = 'rekapitulasi';
-  public function get_pemasukan() {
-    return $this->db->get($this->table_pemasukan)->result();
+  public function get_pemasukan($tgl) {
+    return $this->db->get_where($this->table_pemasukan, array('tanggal' => $tgl))->result();
 	}
 	public function add_pemasukan($data) {
 		return $this->db->insert($this->table_pemasukan, $data);
@@ -13,8 +13,8 @@ class M_keuangan extends CI_Model {
 	public function get_pem_by_id($id) {
 		return $this->db->get_where($this->table_pemasukan, array('id' => $id))->result_array();
   }
-  public function get_pengeluaran() {
-		return $this->db->get($this->table_pengeluaran)->result();
+  public function get_pengeluaran($tgl) {
+		return $this->db->get_where($this->table_pengeluaran, array('tanggal' => $tgl))->result();
 	}
 	public function add_pengeluaran($data) {
 		return $this->db->insert($this->table_pengeluaran, $data);
@@ -43,16 +43,26 @@ class M_keuangan extends CI_Model {
     }
   }
   public function get_total_masuk(){
-    $this->db->select_sum('jumlah');
-    foreach($this->db->get('pemasukan')->result() as $row) {
-      return $row->jumlah;
+    $this->db->select_sum('biaya');
+    foreach($this->db->get($this->table_pemasukan)->result() as $row) {
+      return $row->biaya;
     }
   }
+  public function get_total_masuk_hari($tgl){
+    $this->db->select_sum('biaya');
+    $query = $this->db->get_where($this->table_pemasukan, array('tanggal' => $tgl))->result_array();
+    return $query[0]['biaya'];
+  }
   public function get_total_keluar(){
-    $this->db->select_sum('jumlah');
-    foreach($this->db->get('pengeluaran')->result() as $row) {
-      return $row->jumlah;
+    $this->db->select_sum('harga_satuan');
+    foreach($this->db->get($this->table_pengeluaran)->result() as $row) {
+      return $row->harga_satuan;
     }
+  }
+  public function get_total_keluar_hari($tgl){
+    $this->db->select_sum('harga_satuan');
+    $query = $this->db->get_where($this->table_pengeluaran, array('tanggal' => $tgl))->result_array();
+    return $query[0]['harga_satuan'];
   }
   public function delete_pemasukan($id) {
     return $this->db->delete($this->table_pemasukan, array('id' => $id));
@@ -69,4 +79,7 @@ class M_keuangan extends CI_Model {
 		$this->db->where('id', $id);
 		return $this->db->update($this->table_pengeluaran, $data);
 	}
+  public function rekapitulasi($awal,$akhir){
+    return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+  }
 }

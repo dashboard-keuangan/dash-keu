@@ -107,11 +107,10 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Kode</th>
-                        <th>No. Kwitansi</th>
-                        <th>Tanggal</th>
+                        <th>Customer</th>
                         <th>Keterangan</th>
-                        <th>Jumlah</th>
+                        <th>Biaya</th>
+                        <th>No Kwitansi</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -120,12 +119,11 @@ to get the desired effect
                       <?php foreach ($pemasukan as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
-                        <td><?=$row->kode?></td>
-                        <td><?=$row->no_kwitansi?></td>
-                        <td><?=$row->tanggal?></td>
+                        <td><?=$row->customer?></td>
                         <td><?=$row->keterangan?></td>
-                        <td><?=$row->jumlah?></td>
-                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>" data-nama="<?=$row->kode ?>"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><?=$row->biaya?></td>
+                        <td><?=$row->no_kwitansi?></td>
+                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
                       <?php } ?>
                     </tfoot>
@@ -143,11 +141,7 @@ to get the desired effect
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form role="form" method="post">                    
-                          <div class="form-group">
-                            <label>Kode</label>
-                            <input class="form-control" name="kode" placeholder="Kode" />
-                          </div>
+                        <form role="form" method="post">
                           <div class="form-group">
                             <label>No Kwitansi</label>
                             <input class="form-control" name="no_kwitansi" placeholder="No Kwitansi" />
@@ -157,16 +151,20 @@ to get the desired effect
                             <input type="date" class="form-control" name="tanggal">
                           </div>
                           <div class="form-group">
+                            <label>Customer</label>
+                            <input class="form-control" name="customer" placeholder="Customer" />
+                          </div>
+                          <div class="form-group">
                             <label>Keterangan</label>
                             <textarea class="form-control" name="keterangan" placeholder="Keterangan"></textarea>
                           </div>
                           <div class="form-group">
-                            <label>Jumlah</label>
+                            <label>Biaya</label>
                             <div class="input-group">
                               <div class="input-group-prepend">
                                 <span class="input-group-text">Rp</span>
                               </div>
-                              <input type="text" class="form-control" name="jumlah" />
+                              <input type="text" class="form-control" name="biaya" />
                             </div>
                             <!-- /.input group -->
                           </div>

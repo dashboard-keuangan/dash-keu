@@ -107,10 +107,11 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>No. Kwitansi</th>
-                        <th>Tanggal</th>
                         <th>Keterangan</th>
+                        <th>Harga Satuan</th>
                         <th>Jumlah</th>
+                        <th>Total</th>
+                        <th>No Kwitansi</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -119,11 +120,12 @@ to get the desired effect
                       <?php foreach ($pengeluaran as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
-                        <td><?=$row->no_kwitansi?></td>
-                        <td><?=$row->tanggal?></td>
-                        <td><?=$row->keterangan?></td>
-                        <td><?=$row->jumlah?></td>
-                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_keluar')?>/<?=$row->id?>"><i class="fas fa-pencil-alt"></i></button> <a href="javascript:void(0)" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>" data-nama="<?=$row->no_kwitansi?>"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><?=$row->keterangan;?></td>
+                        <td><?=$row->harga_satuan;?></td>
+                        <td><?=$row->jumlah;?></td>
+                        <td><?=$row->harga_satuan*$row->jumlah;?></td>
+                        <td><?=$row->no_kwitansi;?></td>
+                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_keluar')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></button> <a href="javascript:void(0)" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id; ?>" data-nama="<?=$row->no_kwitansi;?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
                       <?php } ?>
                     </tfoot>
@@ -155,12 +157,19 @@ to get the desired effect
                             <textarea class="form-control" name="keterangan" placeholder="Keterangan"></textarea>
                           </div>
                           <div class="form-group">
-                            <label>Jumlah</label>
+                            <label>Harga Satuan</label>
                             <div class="input-group">
                               <div class="input-group-prepend">
                                 <span class="input-group-text">Rp</span>
                               </div>
-                              <input type="text" class="form-control" name="jumlah">
+                              <input type="text" class="form-control" name="harga_satuan">
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+                          <div class="form-group">
+                            <label>Jumlah</label>
+                            <div class="input-group">
+                              <input type="number" class="form-control" name="jumlah">
                             </div>
                             <!-- /.input group -->
                           </div>
@@ -206,7 +215,7 @@ to get the desired effect
               <div class="row">
                 <div class="col-md-4 offset-md-8">
                   <div class="card text-white bg-danger mb-3" >
-                    <div class="card-header">Total Pengeluaran</div>
+                    <div class="card-header">Total Pengeluaran *masih salah </div>
                     <div class="card-body"><h5 class="card-title">Rp. <?=$total;?></h5></div>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pages extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
+		$this->load->helper('date');
 		$this->load->model('m_user', '', TRUE);
 		$this->load->model('m_keuangan', '', TRUE);
 		if (!$this->session->userdata('dash_keu_id')) {
@@ -12,8 +13,11 @@ class Pages extends CI_Controller {
 	  }
 	  
 	public function index()	{
-		$data['pemasukan'] = $this->m_keuangan->get_total_masuk();
-		$data['pengeluaran'] = $this->m_keuangan->get_total_keluar();
+		$data['pemasukan_total'] = $this->m_keuangan->get_total_masuk();
+		$data['pengeluaran_total'] = $this->m_keuangan->get_total_keluar();
+		$tgl = date("Y-m-d");
+		$data['pemasukan_hari'] = $this->m_keuangan->get_total_masuk_hari($tgl);
+		$data['pengeluaran_hari'] = $this->m_keuangan->get_total_keluar_hari($tgl);
 		$this->load->view('index',$data);
 	}
 
@@ -122,18 +126,19 @@ class Pages extends CI_Controller {
 
 	public function pemasukan() {
 		if ($this->input->post()) {
-			$data['kode'] = $this->input->post('kode');
 			$data['tanggal'] = $this->input->post('tanggal');
+			$data['customer'] = $this->input->post('customer');
 			$data['keterangan'] = $this->input->post('keterangan');
-			$data['jumlah'] = $this->input->post('jumlah');
+			$data['biaya'] = $this->input->post('biaya');
 			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
 
 			$this->m_keuangan->add_pemasukan($data);
 			$this->session->set_flashdata('add_pem_ok', 'Success!');
 			redirect('pages/pemasukan', 'refresh');
 		}
-		$data['pemasukan'] = $this->m_keuangan->get_pemasukan();
-		$data['total'] = $this->m_keuangan->get_total_masuk();
+		$tgl = date("Y-m-d");
+		$data['pemasukan'] = $this->m_keuangan->get_pemasukan($tgl);
+		$data['total'] = $this->m_keuangan->get_total_masuk_hari($tgl);
 		$this->load->view('pemasukan', $data);
 	}
 
@@ -143,18 +148,28 @@ class Pages extends CI_Controller {
 			$data['tanggal'] = $this->input->post('tanggal');
 			$data['keterangan'] = $this->input->post('keterangan');
 			$data['jumlah'] = $this->input->post('jumlah');
+			$data['harga_satuan'] = $this->input->post('harga_satuan');
 
 			$this->m_keuangan->add_pengeluaran($data);
 			$this->session->set_flashdata('add_peng_ok', 'Success!');
 			redirect('pages/pengeluaran', 'refresh');
 		}
-		$data['total'] = $this->m_keuangan->get_total_keluar();
-		$data['pengeluaran'] = $this->m_keuangan->get_pengeluaran();
+		$tgl = date("Y-m-d");
+		$data['total'] = $this->m_keuangan->get_total_keluar_hari($tgl);
+		
+		$data['pengeluaran'] = $this->m_keuangan->get_pengeluaran($tgl);
 		$this->load->view('pengeluaran',$data);
 	}
 
 	public function rekapitulasi() {
-		$this->load->view('rekapitulasi');
+		if ($this->input->post()){
+			$awal = $this->input->post('tanggal_awal');
+			$akhir = $this->input->post('tanggal_akhir');
+			$data['rekap'] = $this->m_keuangan->rekapitulasi($awal,$akhir);
+			$this->load->view('rekapitulasi', $data);
+		} else {
+			$this->load->view('rekapitulasi');
+		}
 	}
 
 	public function search() {

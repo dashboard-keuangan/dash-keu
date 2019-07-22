@@ -76,7 +76,7 @@ to get the desired effect
               </div>
               <div class="card-body">
                 <div class="col-sm-12">
-                  <form role="form" method="GET">
+                  <form role="form" method="POST">
                     <div class="white-box">
                       <div class="row">
                           <div class="col-sm">
@@ -94,8 +94,8 @@ to get the desired effect
                       </div>
                       <br>
                       <div class="text-center">
-                        <?php if ($this->input->get('tanggal_awal') && $this->input->get('tanggal_akhir')) { ?>
-                        <h3>Laporan Dana Pemasukan tanggal <?=$this->input->get('tanggal_awal')?> s/d <?=$this->input->get('tanggal_akhir')?></h3>
+                        <?php if ($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')) { ?>
+                        <h3>Laporan Dana Pemasukan tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h3>
                         <?php } ?>
                       </div>
                       <div class="table-responsive">
@@ -103,10 +103,28 @@ to get the desired effect
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Nama</th>
-                              <th>Jumlah</th>                     
+                              <th>ID</th>
+                              <th>Tanggal</th>
+                              <th>Keterangan</th>
+                              <th>Harga Satuan</th>
+                              <th>Jumlah</th>    
+                              <th>No Kwitansi</th>                 
                             </tr>
-                          </thead>                        
+                          </thead>
+                          <tbody>
+                          <?php $no=0 ?>
+                          <?php if ($this->input->post()) { foreach ($rekap as $row) { ?>
+                          <tr>
+                            <td><?=$no++;?></td>
+                            <td><?=$row['id'];?></td>
+                            <td><?=$row['tanggal'];?></td>
+                            <td><?=$row['keterangan'];?></td>
+                            <td><?=$row['harga_satuan'];?></td>
+                            <td><?=$row['jumlah'];?></td>
+                            <td><?=$row['no_kwitansi'];?></td>
+                          </tr>
+                          <?php } } ?>
+                          </tfoot>                        
                         </table>
                       </div>
                     </div>

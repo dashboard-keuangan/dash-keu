@@ -74,14 +74,6 @@ to get the desired effect
               <div class="card-body">
                 <form class="form-horizontal form-material" method="POST">
                 <?php foreach ($edit as $row) { ?>
-                    <?php if ($this->uri->segment(2) == 'edit_data_masuk') { ?>
-                  <div class="form-group">
-                    <label class="col-md-12">Kode</label>
-                    <div class="col-md-12">
-                      <input type="text" class="form-control form-control-line" name="kode" value="<?=$row['kode'];?>">
-                    </div>
-                  </div>
-                    <?php } ?>
                   <div class="form-group">
                     <label class="col-md-12">No Kwitansi</label>
                     <div class="col-md-12">
@@ -94,18 +86,43 @@ to get the desired effect
                       <input type="date" class="form-control form-control-line" name="tanggal" value="<?=$row['tanggal'];?>">
                     </div>
                   </div>
+                  <?php if ($this->uri->segment(2) == 'edit_data_masuk') { ?>
+                  <div class="form-group">
+                  <label class="col-md-12">Customer</label>
+                  <div class="col-md-12">
+                    <input type="text" class="form-control form-control-line" name="customer" value="<?=$row['customer'];?>">
+                  </div>
+                  </div>
+                  <?php } ?>
                   <div class="form-group">
                     <label class="col-md-12">Keterangan</label>
                     <div class="col-md-12">
                       <textarea row="3" class="form-control form-control-line" name="keterangan"><?=$row['keterangan'];?></textarea>
                     </div>
                   </div>
+                  <?php if ($this->uri->segment(2) == 'edit_data_keluar') { ?>
+                  <div class="form-group">
+                    <label class="col-md-12">Harga Satuan</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="harga_satuan" value="<?=$row['harga_satuan'];?>">
+                    </div>
+                  </div>
+                  <?php } ?>
+                  <?php if ($this->uri->segment(2) == 'edit_data_keluar') { ?>
                   <div class="form-group">
                     <label class="col-md-12">Jumlah</label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control form-control-line" name="jumlah" value="<?=$row['jumlah'];?>">
+                      <input type="number" class="form-control form-control-line" name="jumlah" value="<?=$row['jumlah'];?>">
                     </div>
                   </div>
+                  <?php } else { ?>
+                  <div class="form-group">
+                    <label class="col-md-12">Biaya</label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control form-control-line" name="biaya" value="<?=$row['biaya'];?>">
+                    </div>
+                  </div>
+                  <?php } ?>
                   <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-warning" type="submit">Submit</button>
