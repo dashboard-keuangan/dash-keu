@@ -54,15 +54,12 @@ class M_keuangan extends CI_Model {
     return $query[0]['biaya'];
   }
   public function get_total_keluar(){
-    $this->db->select_sum('harga_satuan');
-    foreach($this->db->get($this->table_pengeluaran)->result() as $row) {
-      return $row->harga_satuan;
-    }
+    $query = $this->db->query("SELECT SUM(`harga_satuan`*`jumlah`) AS total FROM $this->table_pengeluaran")->result_array();
+    return $query[0]['total'];
   }
   public function get_total_keluar_hari($tgl){
-    $this->db->select_sum('harga_satuan');
-    $query = $this->db->get_where($this->table_pengeluaran, array('tanggal' => $tgl))->result_array();
-    return $query[0]['harga_satuan'];
+    $query = $this->db->query("SELECT SUM(`harga_satuan`*`jumlah`) AS total FROM $this->table_pengeluaran WHERE tanggal = '$tgl'")->result_array();
+    return $query[0]['total'];
   }
   public function delete_pemasukan($id) {
     return $this->db->delete($this->table_pemasukan, array('id' => $id));

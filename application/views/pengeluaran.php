@@ -116,7 +116,7 @@ to get the desired effect
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $num=1 ?>
+                      <?php $num=1; $total=0; ?>
                       <?php foreach ($pengeluaran as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
@@ -215,8 +215,8 @@ to get the desired effect
               <div class="row">
                 <div class="col-md-4 offset-md-8">
                   <div class="card text-white bg-danger mb-3" >
-                    <div class="card-header">Total Pengeluaran *masih salah </div>
-                    <div class="card-body"><h5 class="card-title">Rp. <?=$total;?></h5></div>
+                    <div class="card-header">Total Pengeluaran</div>
+                    <div class="card-body"><h5 class="card-title">Rp. <?=$totals;?></h5></div>
                   </div>
                 </div>
               </div>

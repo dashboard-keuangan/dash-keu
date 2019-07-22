@@ -155,7 +155,7 @@ class Pages extends CI_Controller {
 			redirect('pages/pengeluaran', 'refresh');
 		}
 		$tgl = date("Y-m-d");
-		$data['total'] = $this->m_keuangan->get_total_keluar_hari($tgl);
+		$data['totals'] = $this->m_keuangan->get_total_keluar_hari($tgl);
 		
 		$data['pengeluaran'] = $this->m_keuangan->get_pengeluaran($tgl);
 		$this->load->view('pengeluaran',$data);
