@@ -97,7 +97,7 @@ to get the desired effect
                   <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-warning" type="submit" name="submit1">Change Password</button>
-                      <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
+                      <a class="btn btn-danger" onclick="goBack()" href="javascript:void(0)">Batal</a>
                     </div>
                   </div>
                 </form>
@@ -135,7 +135,7 @@ to get the desired effect
                     <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-success" type="submit" name="submit2">Change security</button>
-                      <a class="btn btn-danger" href="<?=base_url()?>">Batal</a>
+                      <a class="btn btn-danger" onclick="goBack()" href="javascript:void(0)">Batal</a>
                     </div>
                   </div>
                   <?php } ?>
