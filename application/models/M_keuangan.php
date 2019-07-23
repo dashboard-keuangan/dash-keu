@@ -77,9 +77,9 @@ class M_keuangan extends CI_Model {
 	}
   public function rekapitulasi($awal,$akhir,$cat){
     if ($cat == 'pemasukan') {
-      return $this->db->query("SELECT *FROM $this->table_pemasukan WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+      return $this->db->query("SELECT *FROM $this->table_pemasukan WHERE tanggal >= '$awal' AND tanggal <= '$akhir' ORDER BY tanggal ASC")->result_array();
     } else {
-      return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+      return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir' ORDER BY tanggal ASC")->result_array();
     }
   }
 }

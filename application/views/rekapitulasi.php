@@ -103,7 +103,7 @@ to get the desired effect
                     <br>
                     <div id="printed">
                       <?php if ($this->input->post('kategori') == 'pemasukan') { ?>
-                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=date('d-m-Y', strtotime($this->input->post('tanggal_awal')))?> s/d <?=date('d-m-Y', strtotime($this->input->post('tanggal_akhir')))?></h4>
+                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h4>
                       <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                           <thead>
@@ -132,7 +132,7 @@ to get the desired effect
                       </div>
                       <!-- /.table-responsive -->
                       <?php } elseif ($this->input->post('kategori') == 'pengeluaran') { ?>
-                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=date('d-m-Y', strtotime($this->input->post('tanggal_awal')))?> s/d <?=date('d-m-Y', strtotime($this->input->post('tanggal_akhir')))?></h4>
+                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h4>
                       <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                           <thead>
