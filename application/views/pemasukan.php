@@ -121,7 +121,7 @@ to get the desired effect
                         <td><?=$num++?></td>
                         <td><?=$row->customer?></td>
                         <td><?=$row->keterangan?></td>
-                        <td><?=$row->biaya?></td>
+                        <td><?="Rp. ".number_format($row->biaya)?></td>
                         <td><?=$row->no_kwitansi?></td>
                         <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
@@ -211,7 +211,7 @@ to get the desired effect
                 <div class="col-md-4 offset-md-8">
                   <div class="card text-white bg-info mb-3" >
                     <div class="card-header">Total Pemasukan</div>
-                    <div class="card-body"><h5 class="card-title">Rp. <?=$total;?></h5></div>
+                    <div class="card-body"><h5 class="card-title">Rp. <?=number_format($total);?></h5></div>
                   </div>
                 </div>
               </div>

@@ -76,34 +76,35 @@ to get the desired effect
               </div>
               <div class="card-body">
                 <div class="col-sm-12">
-                  <form role="form" method="POST">
-                    <div class="white-box">
+                  <div class="white-box">
+                    <form role="form" method="POST">
                       <div class="row">
-                          <div class="col-sm">
-                            <input type="date" name="tanggal_awal" class="form-control form-control-line">
-                          </div>
-                          <div class="col-sm-0 text-center">
-                            <span>s/d</span>
-                          </div>
-                          <div class="col-sm">
-                            <input type="date" name="tanggal_akhir" class="form-control form-control-line"> 
-                          </div>
-                          <div class="col-sm-0">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                          </div>
+                        <div class="col-sm">
+                          <input type="date" name="tanggal_awal" class="form-control form-control-line">
+                        </div>
+                        <div class="col-sm-0 text-center">
+                          <span>s/d</span>
+                        </div>
+                        <div class="col-sm">
+                          <input type="date" name="tanggal_akhir" class="form-control form-control-line"> 
+                        </div>
+                        <div class="col-sm-0">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                       </div>
-                      <br>
-                      <div class="text-center">
-                        <?php if ($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')) { ?>
-                        <h3>Laporan Dana Pemasukan tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h3>
-                        <?php } ?>
-                      </div>
+                      <!-- /.row -->
+                    </form>
+                    <!-- /form -->
+                    <br>
+                    <div id="printed">
+                      <?php if ($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')) { ?>
+                      <h4>Laporan Pengeluaran tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h4>
+                      <?php } if ($this->input->post()) { ?>
                       <div class="table-responsive">
-                        <table class="table" id="printed">
+                        <table class="table">
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>ID</th>
                               <th>Tanggal</th>
                               <th>Keterangan</th>
                               <th>Harga Satuan</th>
@@ -112,26 +113,39 @@ to get the desired effect
                             </tr>
                           </thead>
                           <tbody>
-                          <?php $no=0 ?>
-                          <?php if ($this->input->post()) { foreach ($rekap as $row) { ?>
+                          <?php $no=1; $total=0; ?>
+                          <?php foreach ($rekap as $row) { ?>
                           <tr>
                             <td><?=$no++;?></td>
-                            <td><?=$row['id'];?></td>
                             <td><?=$row['tanggal'];?></td>
                             <td><?=$row['keterangan'];?></td>
-                            <td><?=$row['harga_satuan'];?></td>
+                            <td><?="Rp. ".number_format($row['harga_satuan']);?></td>
                             <td><?=$row['jumlah'];?></td>
                             <td><?=$row['no_kwitansi'];?></td>
                           </tr>
-                          <?php } } ?>
-                          </tfoot>                        
+                          <?php $total=$total+($row['harga_satuan']*$row['jumlah']); }?>
+                          </tfoot>
+                          <tr><th></th><th></th><th>Total Dana</th><td><b><?="Rp. ".number_format($total);?></b></td><td></td><td></td></tr>                     
                         </table>
                       </div>
+                      <?php } ?>
+                      <!-- /.table-responsive -->
                     </div>
-                  </form>
-                  <!-- /form -->
+                    <!-- /#printed -->
+                  </div>
+                  <!-- /.white-box -->
+                  <?php if ($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')) { ?>
+                  <div class="row">
+                    <div class="col-sm-12">
+                    <button type="button" class="btn btn-success" onclick="print()">Print PDF</button>
+                    </div>
+                  </div>
+                  <!-- row -->
+                  <?php } ?>
+                </div>
+                <!-- /.col -->
               </div>
-              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
@@ -152,6 +166,39 @@ to get the desired effect
   <!-- /.control-sidebar -->
 
   <?php $this->load->view('_partial/footer');?>
+  <script type="text/javascript" src="<?=base_url();?>assets/plugins/table_export/libs/FileSaver/FileSaver.min.js"></script>
+  <script type="text/javascript" src="<?=base_url();?>assets/plugins/table_export/libs/jsPDF/jspdf.min.js"></script>
+  <script type="text/javascript" src="<?=base_url();?>assets/plugins/table_export/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
 
+<script>
+  function print() {
+     var pdf = new jsPDF('p', 'pt', 'letter');
+      source = $('#printed')[0];
+      specialElementHandlers = {
+          '#bypassme': function (element, renderer) {
+              return true
+          }
+      };
+      margins = {
+          top: 40,
+          bottom: 40,
+          left: 80,
+          width: 700
+      };
+      // all coords and widths are in jsPDF instance's declared units
+      // 'inches' in this case
+      pdf.fromHTML(
+      source, // HTML string or DOM elem ref.
+      margins.left, // x coord
+      margins.top, { // y coord
+          'width': margins.width, // max width of content on PDF
+          'elementHandlers': specialElementHandlers
+      },
+  
+      function (dispose) {
+          pdf.save('Laporan.pdf');
+      }, margins);
+  }	
+</script>
 </body>
 </html>

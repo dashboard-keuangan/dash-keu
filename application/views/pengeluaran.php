@@ -121,9 +121,9 @@ to get the desired effect
                       <tr>
                         <td><?=$num++?></td>
                         <td><?=$row->keterangan;?></td>
-                        <td><?=$row->harga_satuan;?></td>
+                        <td><?="Rp. ".number_format($row->harga_satuan);?></td>
                         <td><?=$row->jumlah;?></td>
-                        <td><?=$row->harga_satuan*$row->jumlah;?></td>
+                        <td><?="Rp. ".number_format($row->harga_satuan*$row->jumlah);?></td>
                         <td><?=$row->no_kwitansi;?></td>
                         <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_keluar')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></button> <a href="javascript:void(0)" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id; ?>" data-nama="<?=$row->no_kwitansi;?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
@@ -216,7 +216,7 @@ to get the desired effect
                 <div class="col-md-4 offset-md-8">
                   <div class="card text-white bg-danger mb-3" >
                     <div class="card-header">Total Pengeluaran</div>
-                    <div class="card-body"><h5 class="card-title">Rp. <?=$totals;?></h5></div>
+                    <div class="card-body"><h5 class="card-title">Rp. <?=number_format($totals);?></h5></div>
                   </div>
                 </div>
               </div>

@@ -115,7 +115,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp. <?php if (!$pemasukan_total) { echo '0'; } else { echo $pemasukan_total;} ?></h3>
+                <h3>Rp. <?php if (!$pemasukan_total) { echo '0'; } else { echo number_format($pemasukan_total);} ?></h3>
 
                 <p>Total Pemasukan</p>
               </div>
@@ -130,7 +130,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp. <?php if (!$pengeluaran_total) { echo '0'; } else { echo $pengeluaran_total;} ?></h3>
+                <h3>Rp. <?php if (!$pengeluaran_total) { echo '0'; } else { echo number_format($pengeluaran_total);} ?></h3>
 
                 <p>Total Pengeluaran</p>
               </div>
@@ -146,7 +146,7 @@ to get the desired effect
             <div class="small-box bg-success">
               <div class="inner">
               <?php $sisa_saldo_total = $pemasukan_total-$pengeluaran_total;?>
-                <h3>Rp. <?=$sisa_saldo_total;?></h3>
+                <h3>Rp. <?=number_format($sisa_saldo_total);?></h3>
 
                 <p>Sisa Saldo</p>
               </div>
@@ -167,7 +167,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp. <?php if (!$pemasukan_hari) { echo '0'; } else { echo $pemasukan_hari;} ?></h3>
+                <h3>Rp. <?php if (!$pemasukan_hari) { echo '0'; } else { echo number_format($pemasukan_hari);} ?></h3>
 
                 <p>Total Pemasukan Harian</p>
               </div>
@@ -182,7 +182,7 @@ to get the desired effect
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp. <?php if (!$pengeluaran_hari) { echo '0'; } else { echo $pengeluaran_hari;} ?></h3>
+                <h3>Rp. <?php if (!$pengeluaran_hari) { echo '0'; } else { echo number_format($pengeluaran_hari);} ?></h3>
 
                 <p>Total Pengeluaran Harian</p>
               </div>
@@ -198,7 +198,7 @@ to get the desired effect
             <div class="small-box bg-warning">
               <div class="inner">
               <?php $sisa_saldo_hari = $pemasukan_hari-$pengeluaran_hari;?>
-                <h3>Rp. <?=$sisa_saldo_hari;?></h3>
+                <h3>Rp. <?=number_format($sisa_saldo_hari);?></h3>
 
                 <p>Sisa Saldo Harian</p>
               </div>
@@ -324,7 +324,7 @@ to get the desired effect
       datasets: [
         {
           data: [<?=$pemasukan_total?>,<?=$pengeluaran_total?>,<?=$sisa_saldo_total?>],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          backgroundColor : ['#00c0ef', '#f56954', '#00a65a'],
         }
       ]
     }
@@ -350,7 +350,7 @@ to get the desired effect
       datasets: [
         {
           data: [<?=$pemasukan_hari;?>,<?=$pengeluaran_hari;?>,<?=$sisa_saldo_hari;?>],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          backgroundColor : ['#00c0ef', '#f56954', '#f39c12'],
         }
       ]
     }

@@ -70,7 +70,7 @@ to get the desired effect
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header text-white"
-                    style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                    style="background: url('<?=base_url();?>assets/dist/img/photo.jpg') center center;">
                   <h3 class="widget-user-username">Ilham Ibnu Purnomo</h3>
                   <h5 class="widget-user-desc">Founder & CEO</h5>
                 </div>
@@ -116,7 +116,7 @@ to get the desired effect
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header text-white"
-                    style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                    style="background: url('<?=base_url();?>assets/dist/img/photo.jpg') center center;">
                   <h3 class="widget-user-username">Ahmad Rizky Prayogi</h3>
                   <h5 class="widget-user-desc">Founder & CEO</h5>
                 </div>
@@ -162,7 +162,7 @@ to get the desired effect
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header text-white"
-                    style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                    style="background: url('<?=base_url();?>assets/dist/img/photo.jpg') center center;">
                   <h3 class="widget-user-username">Adisca Naufal R</h3>
                   <h5 class="widget-user-desc">Founder & CEO</h5>
                 </div>
@@ -208,7 +208,7 @@ to get the desired effect
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header text-white"
-                    style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                    style="background: url('<?=base_url();?>assets/dist/img/photo.jpg') center center;">
                   <h3 class="widget-user-username">Bilal Tawaqal</h3>
                   <h5 class="widget-user-desc">Web Designer</h5>
                 </div>
@@ -254,7 +254,7 @@ to get the desired effect
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header text-white"
-                    style="background: url('<?=base_url();?>assets/dist/img/photo1.png') center center;">
+                    style="background: url('<?=base_url();?>assets/dist/img/photo.jpg') center center;">
                   <h3 class="widget-user-username">Johan Antonius S</h3>
                   <h5 class="widget-user-desc">Web Designer</h5>
                 </div>
