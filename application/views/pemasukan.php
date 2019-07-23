@@ -130,7 +130,7 @@ to get the desired effect
                       <?php } ?>
                     </tbody>
                     <tr>
-                      <td colspan="4" class="text-center text-bold">Total Pemasukan :</td>
+                      <td colspan="5" class="text-center text-bold">Total Pemasukan :</td>
                       <td colspan="2" class="text-bold"><font style="color: green;"><?php echo "Rp. " . number_format($total).",-"; ?></font></td>
                     </tr>
                   </table>
