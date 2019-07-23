@@ -23,7 +23,7 @@
         </div>
         <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q">
         <div class="input-group-append">
-          <button class="btn" type="submit">
+          <button class="btn btn-default" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
