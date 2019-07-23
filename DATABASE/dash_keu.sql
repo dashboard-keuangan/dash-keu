@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2019 at 08:43 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Waktu pembuatan: 23 Jul 2019 pada 12.22
+-- Versi server: 10.3.15-MariaDB
+-- Versi PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukan`
+-- Struktur dari tabel `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
@@ -38,14 +38,14 @@ CREATE TABLE `pemasukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pemasukan`
+-- Dumping data untuk tabel `pemasukan`
 --
 
 INSERT INTO `pemasukan` (`id`, `tanggal`, `customer`, `keterangan`, `biaya`, `no_kwitansi`) VALUES
 (1, '2019-07-21', 'bambang', 'bayar sewa web sekolah', 80000, 'K-001'),
 (2, '2019-07-21', 'joko', 'bayar sewa web sekolah', 80000, 'K-002'),
 (3, '2019-07-22', 'adi', 'bayar sewa web sekolah', 80000, 'K-003'),
-(4, '2019-07-23', 'ahmad', 'sponsorship', 400000, 'K-004'),
+(4, '2019-07-23', 'ahmad', 'sponsorship', 400000000, 'K-004'),
 (5, '2019-07-28', 'bilal', 'event di sekolah', 250000, 'K-005'),
 (6, '2019-08-01', 'inu', 'sponsorship', 400000, 'K-006'),
 (7, '2019-08-01', 'adis', 'bayar sewa web sekolah', 80000, 'K-007'),
@@ -77,7 +77,7 @@ INSERT INTO `pemasukan` (`id`, `tanggal`, `customer`, `keterangan`, `biaya`, `no
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -90,7 +90,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `tanggal`, `keterangan`, `harga_satuan`, `jumlah`, `no_kwitansi`) VALUES
@@ -128,7 +128,7 @@ INSERT INTO `pengeluaran` (`id`, `tanggal`, `keterangan`, `harga_satuan`, `jumla
 -- --------------------------------------------------------
 
 --
--- Table structure for table `report`
+-- Struktur dari tabel `report`
 --
 
 CREATE TABLE `report` (
@@ -138,7 +138,7 @@ CREATE TABLE `report` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `report`
+-- Dumping data untuk tabel `report`
 --
 
 INSERT INTO `report` (`idreport`, `bulan`, `nilai`) VALUES
@@ -151,7 +151,7 @@ INSERT INTO `report` (`idreport`, `bulan`, `nilai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -172,7 +172,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `bio`, `skill`, `education`, `notes`, `pertanyaan`, `jawaban`) VALUES
@@ -184,43 +184,43 @@ INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp
 --
 
 --
--- Indexes for table `pemasukan`
+-- Indeks untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pemasukan`
+-- AUTO_INCREMENT untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302022;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
