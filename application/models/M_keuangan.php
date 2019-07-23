@@ -23,13 +23,12 @@ class M_keuangan extends CI_Model {
 		return $this->db->get_where($this->table_pengeluaran, array('id' => $id))->result_array();
   }
   public function pencarian($keyword, $tabel) {
+    $this->db->like('no_kwitansi',$keyword);
     if ($tabel=='pemasukan'){
-      $this->db->like('kode',$keyword);
-      return $this->db->get('pemasukan')->result();
+      return $this->db->get($this->table_pemasukan)->result();
     }
     if ($tabel=='pengeluaran'){
-      $this->db->like('no_kwitansi',$keyword);
-      return $this->db->get('pengeluaran')->result();
+      return $this->db->get($this->table_pengeluaran)->result();
     }
   }
 	public function report(){
@@ -76,7 +75,11 @@ class M_keuangan extends CI_Model {
 		$this->db->where('id', $id);
 		return $this->db->update($this->table_pengeluaran, $data);
 	}
-  public function rekapitulasi($awal,$akhir){
-    return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+  public function rekapitulasi($awal,$akhir,$cat){
+    if ($cat == 'pemasukan') {
+      return $this->db->query("SELECT *FROM $this->table_pemasukan WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+    } else {
+      return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir'")->result_array();
+    }
   }
 }

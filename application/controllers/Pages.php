@@ -166,7 +166,8 @@ class Pages extends CI_Controller {
 		if ($this->input->post()){
 			$awal = $this->input->post('tanggal_awal');
 			$akhir = $this->input->post('tanggal_akhir');
-			$data['rekap'] = $this->m_keuangan->rekapitulasi($awal,$akhir);
+			$cat = $this->input->post('kategori');
+			$data['rekap'] = $this->m_keuangan->rekapitulasi($awal,$akhir,$cat);
 			$this->load->view('rekapitulasi', $data);
 		} else {
 			$this->load->view('rekapitulasi');
@@ -195,11 +196,11 @@ class Pages extends CI_Controller {
 
 	public function edit_data_masuk($id) {
 		if ($this->input->post()){
-			$data['kode'] = $this->input->post('kode');
-			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
 			$data['tanggal'] = $this->input->post('tanggal');
+			$data['customer'] = $this->input->post('customer');
 			$data['keterangan'] = $this->input->post('keterangan');
-			$data['jumlah'] = $this->input->post('jumlah');
+			$data['biaya'] = $this->input->post('biaya');
+			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
 
 			$this->m_keuangan->update_masuk($data, $id);
 			$this->session->set_flashdata('update_ok', 'Success!');
@@ -211,10 +212,11 @@ class Pages extends CI_Controller {
 
 	public function edit_data_keluar($id) {
 		if ($this->input->post()){
-			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
 			$data['tanggal'] = $this->input->post('tanggal');
 			$data['keterangan'] = $this->input->post('keterangan');
+			$data['harga_satuan'] = $this->input->post('harga_satuan');
 			$data['jumlah'] = $this->input->post('jumlah');
+			$data['no_kwitansi'] = $this->input->post('no_kwitansi');
 
 			$this->m_keuangan->update_keluar($data, $id);
 			$this->session->set_flashdata('update_ok', 'Success!');

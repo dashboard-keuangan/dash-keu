@@ -78,7 +78,12 @@ to get the desired effect
                   <div class="white-box">
                     <form role="form" method="POST">
                       <div class="row">
-                        <div class="col-sm">
+                      <div class="input-group">
+                        <div class="col-sm input-group-prepend">
+                          <select class="btn btn-block btn-default" name="kategori">
+                            <option value="pemasukan">Pemasukan</option>
+                            <option value="pengeluaran">Pengeluaran</option>
+                          </select>
                           <input type="date" name="tanggal_awal" class="form-control form-control-line">
                         </div>
                         <div class="col-sm-0 text-center">
@@ -91,14 +96,43 @@ to get the desired effect
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                       </div>
+                      </div>
                       <!-- /.row -->
                     </form>
                     <!-- /form -->
                     <br>
                     <div id="printed">
-                      <?php if ($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')) { ?>
-                      <h4>Laporan Pengeluaran tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h4>
-                      <?php } if ($this->input->post()) { ?>
+                      <?php if ($this->input->post('kategori') == 'pemasukan') { ?>
+                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=date('d-m-Y', strtotime($this->input->post('tanggal_awal')))?> s/d <?=date('d-m-Y', strtotime($this->input->post('tanggal_akhir')))?></h4>
+                      <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>No</th>
+                              <th>No Kwitansi</th>  
+                              <th>Tanggal</th>
+                              <th>Keterangan</th>
+                              <th>Biaya</th>              
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php $no=1; $total=0; ?>
+                          <?php foreach ($rekap as $row) { ?>
+                          <tr>
+                            <td><?=$no++;?></td>
+                            <td><?=$row['no_kwitansi'];?></td>
+                            <td><?=$row['tanggal'];?></td>
+                            <td><?=$row['keterangan'];?></td>
+                            <td><?="Rp. ".number_format($row['biaya']).",-";?></td>
+                          </tr>
+                          <?php $total=$total+($row['biaya']); }?>
+                          </tbody>
+                          <tr><th></th><th></th><th></th><th>Total Dana</th><th><b><?="Rp. ".number_format($total).",-";?></b></th></tr>                     
+                        </table>
+                      </div>
+                      <!-- /.table-responsive -->
+                      <?php } elseif ($this->input->post('kategori') == 'pengeluaran') { ?>
+                      <h4>Laporan <?=ucwords($this->input->post('kategori'));?> tanggal <?=date('d-m-Y', strtotime($this->input->post('tanggal_awal')))?> s/d <?=date('d-m-Y', strtotime($this->input->post('tanggal_akhir')))?></h4>
                       <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                           <thead>

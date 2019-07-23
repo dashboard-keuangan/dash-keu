@@ -107,7 +107,7 @@ to get the desired effect
         <!-- End ALERT -->
         <!-- ============================================================== -->
         <!-- Small boxes (Stat box) -->
-        <div class="card">
+        <div class="card card-primary card-outline">
           <div class="card-header"><h3 class="card-title">Saldo Total <?=date('Y');?></h3></div>
         </div>
         <div class="row">
@@ -159,7 +159,7 @@ to get the desired effect
           <!-- ./col -->
         </div>
 
-        <div class="card">
+        <div class="card card-primary card-outline">
           <div class="card-header"><h3 class="card-title">Saldo <?=date('Y-m-d');?></h3></div>
         </div>
         <div class="row">

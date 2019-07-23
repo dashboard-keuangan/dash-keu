@@ -90,9 +90,15 @@ to get the desired effect
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Kode</th>
+                    <th>No Kwitansi</th>
                     <th>Keterangan</th>
+                    <?php if ($this->input->get('kategori') == 'pemasukan') { ?>
+                    <th>Biaya</th>
+                    <?php } else { ?>
+                    <th>Harga Satuan</th>
                     <th>Jumlah</th>
+                    <?php } ?>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -101,15 +107,18 @@ to get the desired effect
                 <?php if ($this->input->get()) { foreach($results as $row){ ?>
                   <?php if ($this->input->get('kategori')=='pemasukan') { ?>
                     <tr>
-                      <td><?php echo $row->kode?></td>
-                      <td><?php echo $row->keterangan?></td>
-                      <td><?php echo $row->jumlah?></td>
+                      <td><?=$row->no_kwitansi?></td>
+                      <td><?=$row->keterangan?></td>
+                      <td><?=$row->biaya?></td>
+                      <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
                   <?php } else { ?>
                     <tr>
-                      <td><?php echo $row->no_kwitansi?></td>
-                      <td><?php echo $row->keterangan?></td>
-                      <td><?php echo $row->jumlah?></td>
+                      <td><?=$row->no_kwitansi?></td>
+                      <td><?=$row->keterangan?></td>
+                      <td><?=$row->harga_satuan?></td>
+                      <td><?=$row->jumlah?></td>
+                      <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
                   <?php } ?>
                 <?php } } ?>

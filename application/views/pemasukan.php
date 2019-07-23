@@ -107,6 +107,7 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Tanggal</th>
                         <th>No Kwitansi</th>
                         <th>Customer</th>
                         <th>Keterangan</th>
@@ -119,6 +120,7 @@ to get the desired effect
                       <?php foreach ($pemasukan as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
+                        <td><?=$row->tanggal?></td>
                         <td><?=$row->no_kwitansi?></td>
                         <td><?=$row->customer?></td>
                         <td><?=$row->keterangan?></td>

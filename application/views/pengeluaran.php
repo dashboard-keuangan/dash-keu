@@ -107,6 +107,7 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Tanggal</th>
                         <th>No Kwitansi</th>
                         <th>Keterangan</th>
                         <th>Harga Satuan</th>
@@ -120,6 +121,7 @@ to get the desired effect
                       <?php foreach ($pengeluaran as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
+                        <td><?=$row->tanggal;?></td>
                         <td><?=$row->no_kwitansi;?></td>
                         <td><?=$row->keterangan;?></td>
                         <td><?="Rp. ".number_format($row->harga_satuan).",-";?></td>
