@@ -229,7 +229,7 @@ to get the desired effect
       },
   
       function (dispose) {
-          pdf.save('Laporan.pdf');
+          pdf.save('Laporan-<?=ucwords($this->input->post('kategori'));?>(<?=date('Ymd', strtotime($this->input->post('tanggal_awal')))."-".date('Ymd', strtotime($this->input->post('tanggal_akhir')));?>).pdf');
       }, margins);
   }	
 </script>
