@@ -71,7 +71,6 @@ to get the desired effect
               <div class="card-header">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title p-1">Rekapitulasi</h3>
-                  <span title="Kembali"><button class="btn btn-sm btn-danger">Kembali</button></span>
                 </div>
               </div>
               <div class="card-body">
@@ -101,15 +100,15 @@ to get the desired effect
                       <h4>Laporan Pengeluaran tanggal <?=$this->input->post('tanggal_awal')?> s/d <?=$this->input->post('tanggal_akhir')?></h4>
                       <?php } if ($this->input->post()) { ?>
                       <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered table-striped">
                           <thead>
                             <tr>
                               <th>No</th>
+                              <th>No Kwitansi</th>  
                               <th>Tanggal</th>
                               <th>Keterangan</th>
                               <th>Harga Satuan</th>
-                              <th>Jumlah</th>    
-                              <th>No Kwitansi</th>                 
+                              <th>Jumlah</th>               
                             </tr>
                           </thead>
                           <tbody>
@@ -117,15 +116,15 @@ to get the desired effect
                           <?php foreach ($rekap as $row) { ?>
                           <tr>
                             <td><?=$no++;?></td>
+                            <td><?=$row['no_kwitansi'];?></td>
                             <td><?=$row['tanggal'];?></td>
                             <td><?=$row['keterangan'];?></td>
                             <td><?="Rp. ".number_format($row['harga_satuan']);?></td>
                             <td><?=$row['jumlah'];?></td>
-                            <td><?=$row['no_kwitansi'];?></td>
                           </tr>
                           <?php $total=$total+($row['harga_satuan']*$row['jumlah']); }?>
                           </tfoot>
-                          <tr><th></th><th></th><th>Total Dana</th><td><b><?="Rp. ".number_format($total);?></b></td><td></td><td></td></tr>                     
+                          <tr><th></th><th></th><th></th><th></th><th>Total Dana</th><th><b><?="Rp. ".number_format($total);?></b></th></tr>                     
                         </table>
                       </div>
                       <?php } ?>
