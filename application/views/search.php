@@ -109,14 +109,14 @@ to get the desired effect
                     <tr>
                       <td><?=$row->no_kwitansi?></td>
                       <td><?=$row->keterangan?></td>
-                      <td><?=$row->biaya?></td>
+                      <td><?="Rp. ".number_format($row->biaya).",-"?></td>
                       <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
                   <?php } else { ?>
                     <tr>
                       <td><?=$row->no_kwitansi?></td>
                       <td><?=$row->keterangan?></td>
-                      <td><?=$row->harga_satuan?></td>
+                      <td><?="Rp. ".number_format($row->harga_satuan).",-"?></td>
                       <td><?=$row->jumlah?></td>
                       <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
