@@ -119,12 +119,12 @@ to get the desired effect
                             <td><?=$row['no_kwitansi'];?></td>
                             <td><?=$row['tanggal'];?></td>
                             <td><?=$row['keterangan'];?></td>
-                            <td><?="Rp. ".number_format($row['harga_satuan']);?></td>
+                            <td><?="Rp. ".number_format($row['harga_satuan']).",-";?></td>
                             <td><?=$row['jumlah'];?></td>
                           </tr>
                           <?php $total=$total+($row['harga_satuan']*$row['jumlah']); }?>
-                          </tfoot>
-                          <tr><th></th><th></th><th></th><th></th><th>Total Dana</th><th><b><?="Rp. ".number_format($total);?></b></th></tr>                     
+                          </tbody>
+                          <tr><th></th><th></th><th></th><th></th><th>Total Dana</th><th><b><?="Rp. ".number_format($total).",-";?></b></th></tr>                     
                         </table>
                       </div>
                       <?php } ?>

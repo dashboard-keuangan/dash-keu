@@ -107,10 +107,10 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>No Kwitansi</th>
                         <th>Customer</th>
                         <th>Keterangan</th>
                         <th>Biaya</th>
-                        <th>No Kwitansi</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -119,14 +119,18 @@ to get the desired effect
                       <?php foreach ($pemasukan as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
+                        <td><?=$row->no_kwitansi?></td>
                         <td><?=$row->customer?></td>
                         <td><?=$row->keterangan?></td>
-                        <td><?="Rp. ".number_format($row->biaya)?></td>
-                        <td><?=$row->no_kwitansi?></td>
+                        <td><?="Rp. ".number_format($row->biaya).",-";?></td>
                         <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
                       <?php } ?>
-                    </tfoot>
+                    </tbody>
+                    <tr>
+                      <td colspan="4" class="text-center text-bold">Total Pemasukan :</td>
+                      <td colspan="2" class="text-bold"><font style="color: green;"><?php echo "Rp. " . number_format($total).",-"; ?></font></td>
+                    </tr>
                   </table>
                 </div>
                 <!-- /.table-responsive -->
@@ -206,17 +210,6 @@ to get the desired effect
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 offset-md-8">
-                  <div class="card text-white bg-info mb-3" >
-                    <div class="card-header">Total Pemasukan</div>
-                    <div class="card-body"><h5 class="card-title">Rp. <?=number_format($total);?></h5></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.container -->
           </div>
           <!-- /.col -->
         </div>
