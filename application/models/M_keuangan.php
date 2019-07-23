@@ -32,7 +32,8 @@ class M_keuangan extends CI_Model {
     }
   }
 	public function report(){
-    $query = $this->db->query("SELECT * from report");
+    $tgl = date("Y-m-d");
+    $query = $this->db->query("SELECT * from report where tanggal <= '$tgl' limit 7");
          
     if($query->num_rows() > 0){
       foreach($query->result() as $data){
@@ -42,7 +43,9 @@ class M_keuangan extends CI_Model {
     }
   }
   public function get_total_masuk(){
-    $this->db->select_sum('biaya');
+    $tahun = date("Y");
+    $this->db->select_sum('biaya')
+                ->where("Year(tanggal)", $tahun);
     foreach($this->db->get($this->table_pemasukan)->result() as $row) {
       return $row->biaya;
     }
@@ -53,7 +56,8 @@ class M_keuangan extends CI_Model {
     return $query[0]['biaya'];
   }
   public function get_total_keluar(){
-    $query = $this->db->query("SELECT SUM(`harga_satuan`*`jumlah`) AS total FROM $this->table_pengeluaran")->result_array();
+    $tahun = date("Y");
+    $query = $this->db->query("SELECT SUM(`harga_satuan`*`jumlah`) AS total FROM $this->table_pengeluaran where year(tanggal) = '$tahun'")->result_array();
     return $query[0]['total'];
   }
   public function get_total_keluar_hari($tgl){
@@ -81,5 +85,13 @@ class M_keuangan extends CI_Model {
     } else {
       return $this->db->query("SELECT *FROM $this->table_pengeluaran WHERE tanggal >= '$awal' AND tanggal <= '$akhir' ORDER BY tanggal ASC")->result_array();
     }
+  }
+  public function detailyuhu($tanggal){
+    $tes = $this->db->query("Select *from pengeluaran where tanggal = '$tanggal'");
+    return $tes->result();
+  }
+  public function detailuhuy($tanggal){
+    $tes = $this->db->query("Select *from pemasukan where tanggal = '$tanggal'");
+    return $tes->result();
   }
 }

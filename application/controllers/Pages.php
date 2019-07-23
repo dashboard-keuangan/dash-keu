@@ -225,4 +225,12 @@ class Pages extends CI_Controller {
 		$data['edit'] = $this->m_keuangan->get_peng_by_id($id);
 		$this->load->view('edit_data', $data);
 	}
+	function detailharian_keluar($tanggal){
+        $data=$this->m_keuangan->detailyuhu($tanggal);
+        echo json_encode($data);
+    }
+    function detailharian_masuk($tanggal){
+        $data=$this->m_keuangan->detailuhuy($tanggal);
+        echo json_encode($data);
+    }
 }

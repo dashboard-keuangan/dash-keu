@@ -75,8 +75,8 @@ to get the desired effect
                 <?php
                     /* Mengambil query report*/
                     foreach($report as $result){
-                        $bulan[] = $result->bulan; //ambil bulan
-                        $value[] = (float) $result->nilai; //ambil nilai
+                        $tanggal[] = $result->tanggal; //ambil bulan
+                        $saldo[] = (float) $result->saldo; //ambil nilai
                     }
                     /* end mengambil query*/
                     
@@ -93,6 +93,98 @@ to get the desired effect
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
+    </div>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Tanggal</th>
+                        <th>Total Pemasukan</th>
+                        <th>Total Pengeluaran</th>
+                        <th>Saldo</th>
+                        <th>Detail</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $num=1; $total=0; ?>
+                      <?php foreach ($report as $row) { ?>
+                      <tr>
+                        <td><?=$num++?></td>
+                        <td><?=$row->tanggal;?></td>
+                         <?php $ttt = $row->tanggal;?>
+                        <td><?=$row->total_pemasukan;?></td>
+                        <td><?=$row->total_pengeluaran;?></td>
+                        <td><?="Rp. ".number_format($row->saldo).",-";?></td>
+                        <td class="text-center"><button id="<?=$ttt?>" onClick="delebabi('<?=$row->tanggal;?>')" class="btn btn-success"><i class="fas fa-info-circle"></button></i></td>
+                      </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">Pemasukan Tanggal : <span  id="asup"></div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="latihan" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>No Kwitansi</th>
+                        <th>Customer</th>
+                        <th>Biaya</th>
+                        <th>Keterangan</th>
+                      </tr>
+                    </thead>
+                    <tbody id='babi'>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-header">Pengeluaran Tanggal : <span  id="kaluar"></div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="latihan" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>No Kwitansi</th>
+                        <th>Harga Satuan</th>
+                        <th>Jumlah</th>
+                        <th>Keterangan</th>
+                      </tr>
+                    </thead>
+                    <tbody id='bagong'>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.content -->
   </div>
@@ -128,14 +220,14 @@ $(function () {
             }
         },
         title: {
-            text: 'Report Jan - Agustus',
+            text: 'Report 7 Hari Kebelakang',
             style: {
                     fontSize: '18px',
                     fontFamily: 'Verdana, sans-serif'
             }
         },
         subtitle: {
-           text: 'Penjualan',
+           text: 'Penghasilan',
            style: {
                     fontSize: '15px',
                     fontFamily: 'Verdana, sans-serif'
@@ -150,7 +242,7 @@ $(function () {
             enabled: false
         },
         xAxis: {
-            categories:  <?php echo json_encode($bulan);?>
+            categories:  <?php echo json_encode($tanggal);?>
         },
         exporting: { 
             enabled: false 
@@ -167,7 +259,7 @@ $(function () {
           },
         series: [{
             name: 'Report Data',
-            data: <?php echo json_encode($value);?>,
+            data: <?php echo json_encode($saldo);?>,
             shadow : true,
             dataLabels: {
                 enabled: true,
@@ -185,7 +277,53 @@ $(function () {
         }]
     });
 });
+function delebabi(status){
+        var www = <?=$ttt?>;
+        
+        $.ajax({
+          type:'POST',
+          url:'<?=base_url()?>pages/detailharian_keluar/'+status,
+          dataType: 'json',
+          success: function(data){
+            console.log(data);
+          var baris = '';
+          for (var  i=0;i<data.length;i++){
+            baris += '<tr>'+
+                            '<td>'+data[i].id+'</td>'+
+                            '<td>'+data[i].no_kwitansi+'</td>'+
+                            '<td>'+data[i].harga_satuan+'</td>'+
+                            '<td>'+data[i].jumlah+'</td>'+
+                            '<td>'+data[i].keterangan+'</td>'+
+                      '</tr>';
+          }
+          $('#bagong').html(baris);
+          
+          }
+        });
+        document.getElementById("kaluar").innerHTML = status;
+        document.getElementById("asup").innerHTML = status;
+        $.ajax({
+          type:'POST',
+          url:'<?=base_url()?>pages/detailharian_masuk/'+status,
+          dataType: 'json',
+          success: function(data){
+          var baris = '';
+          for (var  i=0;i<data.length;i++){
+            baris += '<tr>'+
+                            '<td>'+data[i].id+'</td>'+
+                            '<td>'+data[i].no_kwitansi+'</td>'+
+                            '<td>'+data[i].customer+'</td>'+
+                            '<td>'+data[i].biaya+'</td>'+
+                            '<td>'+data[i].keterangan+'</td>'+
+                      '</tr>';
+          }
+          $('#babi').html(baris);
+          
+          }
+        });
+    }
 </script>
+
 
 </body>
 </html>
