@@ -117,7 +117,7 @@ to get the desired effect
                       <?php foreach ($report as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
-                        <td><?=$row->tanggal;?></td>
+                        <td><?php $date = str_replace('/', '-', $row->tanggal ); $newDate = date("d-m-Y", strtotime($date)); echo $newDate?></td>
                          <?php $ttt = $row->tanggal;?>
                         <td><?=$row->total_pemasukan;?></td>
                         <td><?=$row->total_pengeluaran;?></td>

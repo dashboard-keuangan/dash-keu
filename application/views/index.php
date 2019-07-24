@@ -160,7 +160,7 @@ to get the desired effect
         </div>
 
         <div class="card card-primary card-outline">
-          <div class="card-header"><h3 class="card-title">Saldo <?=date('Y-m-d');?></h3></div>
+          <div class="card-header"><h3 class="card-title">Saldo <?=date('d-m-Y');?></h3></div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-6">

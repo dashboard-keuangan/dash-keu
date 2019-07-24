@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jul 2019 pada 12.22
--- Versi server: 10.3.15-MariaDB
--- Versi PHP: 7.3.6
+-- Generation Time: Jul 24, 2019 at 02:25 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemasukan`
+-- Table structure for table `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
@@ -38,7 +38,7 @@ CREATE TABLE `pemasukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pemasukan`
+-- Dumping data for table `pemasukan`
 --
 
 INSERT INTO `pemasukan` (`id`, `tanggal`, `customer`, `keterangan`, `biaya`, `no_kwitansi`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `pemasukan` (`id`, `tanggal`, `customer`, `keterangan`, `biaya`, `no
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengeluaran`
+-- Table structure for table `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -90,7 +90,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengeluaran`
+-- Dumping data for table `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `tanggal`, `keterangan`, `harga_satuan`, `jumlah`, `no_kwitansi`) VALUES
@@ -128,30 +128,50 @@ INSERT INTO `pengeluaran` (`id`, `tanggal`, `keterangan`, `harga_satuan`, `jumla
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `report`
+-- Table structure for table `report`
 --
 
 CREATE TABLE `report` (
-  `idreport` int(11) NOT NULL,
-  `bulan` varchar(50) NOT NULL,
-  `nilai` int(11) NOT NULL
+  `id` int(20) NOT NULL,
+  `tanggal` date DEFAULT NULL,
+  `total_pemasukan` int(20) DEFAULT '0',
+  `total_pengeluaran` int(20) DEFAULT '0',
+  `saldo` int(20) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `report`
+-- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`idreport`, `bulan`, `nilai`) VALUES
-(1, 'januari', 10),
-(2, 'februari', 50),
-(3, 'maret', 40),
-(4, 'april', 90),
-(5, 'april', 45);
+INSERT INTO `report` (`id`, `tanggal`, `total_pemasukan`, `total_pengeluaran`, `saldo`) VALUES
+(1, '2019-07-21', 160000, 1900000, -1740000),
+(2, '2019-07-22', 150000, 2400000, -2250000),
+(3, '2019-07-23', 400000000, 680000, 399320000),
+(4, '2019-07-28', 250000, 506000, -256000),
+(5, '2019-08-01', 730000, 6910000, -6180000),
+(6, '2019-08-03', 250000, 120000, 130000),
+(7, '2019-08-05', 80000, 150000, -70000),
+(8, '2019-08-06', 80000, 5672000, -5592000),
+(9, '2019-08-07', 80000, 0, 80000),
+(10, '2019-08-08', 80000, 0, 80000),
+(11, '2019-08-11', 650000, 5200000, -4550000),
+(12, '2019-08-12', 250000, 1020000, -770000),
+(13, '2019-08-13', 650000, 2884000, -2234000),
+(14, '2019-08-18', 400000, 750000, -350000),
+(15, '2019-08-21', 160000, 7000000, -6840000),
+(16, '2019-08-22', 80000, 0, 80000),
+(17, '2019-08-24', 250000, 1280000, -1030000),
+(18, '2019-08-26', 400000, 9646000, -9246000),
+(19, '2019-09-01', 80000, 0, 80000),
+(20, '2019-09-02', 650000, 0, 650000),
+(21, '2019-09-03', 250000, 0, 250000),
+(22, '2019-09-05', 80000, 0, 80000),
+(23, '2019-09-06', 80000, 0, 80000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -172,58 +192,72 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `nama`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `bio`, `skill`, `education`, `notes`, `pertanyaan`, `jawaban`) VALUES
 (101, 'admin', 'Ilham Ibnu Purnomo', 'social.inupurnomo@gmail.com', 'L', '085723688655', 'Kebumen', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, libero dignissimos reiciendis necessitatibus soluta placeat?', 'PHP, CodeIgniter', 'Telkom Schools Purwokerto', 'Keep Crazy!', 'Apa warna kesukaan anda ?', 'hitam'),
-(105, 'adiscanr', 'Adisca Naufal R', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '', '', '', '', '0', '');
+(105, 'adiscanr', 'Adisca Naufal R', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '', '', '', '', '0', ''),
+(120, 'brader', 'Ahmad Rizky Prayogi', 'arizkyprayogi@inditech.id', 'L', '085720966872', 'Cianjur', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Edanken tong aya Reman!!!', 'PHP, CodeIgniter', 'Telkom Yuhu', 'Gasken Bray!', 'Apa warna kesukaan anda ?', 'hitam');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `pemasukan`
+-- Indexes for table `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
--- Indeks untuk tabel `pengeluaran`
+-- Indexes for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `pemasukan`
+-- AUTO_INCREMENT for table `pemasukan`
 --
 ALTER TABLE `pemasukan`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT untuk tabel `pengeluaran`
+-- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302022;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
