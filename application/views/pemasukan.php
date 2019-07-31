@@ -107,11 +107,11 @@ to get the desired effect
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>ID Siswa</th>
+                        <th>ID Sekolah</th>
                         <th>Tanggal</th>
                         <th>No Kwitansi</th>
-                        <th>Customer</th>
-                        <th>Keterangan</th>
-                        <th>Biaya</th>
+                        <th>Jumlah</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -120,11 +120,11 @@ to get the desired effect
                       <?php foreach ($pemasukan as $row) { ?>
                       <tr>
                         <td><?=$num++?></td>
-                        <td><?=$row->tanggal?></td>
+                        <td><?=$row->id_siswa?></td>
+                        <td><?=$row->id_sekolah?></td>
+                        <td><?=$row->Tanggal?></td>
                         <td><?=$row->no_kwitansi?></td>
-                        <td><?=$row->customer?></td>
-                        <td><?=$row->keterangan?></td>
-                        <td><?="Rp. ".number_format($row->biaya).",-";?></td>
+                        <td><?="Rp. ".number_format($row->Jumlah).",-";?></td>
                         <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>"><i class="fas fa-trash-alt"></i></a></td>
                       </tr>
                       <?php } ?>

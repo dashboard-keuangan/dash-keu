@@ -6,19 +6,19 @@ class Pages extends CI_Controller {
 		parent::__construct();
 		date_default_timezone_set('Asia/Jakarta');
 		$this->load->helper('date');
-		$this->load->model('m_user', '', TRUE);
+		//$this->load->model('m_user', '', TRUE);
 		$this->load->model('m_keuangan', '', TRUE);
-		if (!$this->session->userdata('dash_keu_id')) {
-			redirect('auth','location');
-		}
+		//if (!$this->session->userdata('dash_keu_id')) {
+		//	redirect('auth','location');
+		//}
 	  }
 	  
 	public function index()	{
 		$data['pemasukan_total'] = $this->m_keuangan->get_total_masuk();
-		$data['pengeluaran_total'] = $this->m_keuangan->get_total_keluar();
+		//$data['pengeluaran_total'] = $this->m_keuangan->get_total_keluar();
 		$tgl = date("Y-m-d");
 		$data['pemasukan_hari'] = $this->m_keuangan->get_total_masuk_hari($tgl);
-		$data['pengeluaran_hari'] = $this->m_keuangan->get_total_keluar_hari($tgl);
+		//$data['pengeluaran_hari'] = $this->m_keuangan->get_total_keluar_hari($tgl);
 		$this->load->view('index',$data);
 	}
 

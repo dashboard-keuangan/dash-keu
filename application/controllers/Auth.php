@@ -8,12 +8,13 @@ class Auth extends CI_Controller {
   }
   
 	public function index() {
-    if ($this->session->userdata('dash_keu_id')){
-      redirect('pages','location');
-    }
-    else {
-      $this->load->view('auth/login');
-    }
+    //if ($this->session->userdata('dash_keu_id')){
+    //  redirect('pages','location');
+    //}
+    //else {
+    //  $this->load->view('auth/login');
+    //}
+    redirect('pages', 'location');
   }
 
 	public function register() {
