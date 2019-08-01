@@ -105,9 +105,21 @@ to get the desired effect
                 <div class="table-responsive">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Pilih Sekolah</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Tampilkan semua</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
                       <tr>
                         <th>#</th>
                         <th>ID Siswa</th>
+                        <th>Nama Siswa</th>
                         <th>ID Sekolah</th>
                         <th>Tanggal</th>
                         <th>No Kwitansi</th>
@@ -121,6 +133,7 @@ to get the desired effect
                       <tr>
                         <td><?=$num++?></td>
                         <td><?=$row->id_siswa?></td>
+                        <td><?=$row->Nama_Lengkap?></td>
                         <td><?=$row->id_sekolah?></td>
                         <td><?=$row->Tanggal?></td>
                         <td><?=$row->no_kwitansi?></td>

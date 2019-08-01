@@ -1,11 +1,18 @@
 <?php
 
 class M_keuangan extends CI_Model {
-  private $table_pemasukan = 'tb_histori_pembayaran';
-  private $table_pengeluaran = 'pengeluaran';
-  private $table_rekap = 'rekapitulasi';
-  public function get_pemasukan($tgl) {
-    return $this->db->get_where($this->table_pemasukan, array('Tanggal' => $tgl))->result();
+  //private $table_pemasukan = 'tb_histori_pembayaran';
+  //private $table_pengeluaran = 'pengeluaran';
+  //private $table_rekap = 'rekapitulasi';
+  public function get_histori_pembayaran() {
+    $this->db->select('*');
+    $this->db->from('tb_histori_pembayaran');
+    $this->db->join('mst_tb_sekolah','tb_histori_pembayaran.id_sekolah = mst_tb_sekolah.id_sekolah');
+    $this->db->join('tb_siswa','tb_histori_pembayaran.id_siswa = tb_siswa.id_siswa');
+    $this->db->limit(100);
+    $query = $this->db->get();
+    return $query->result();
+    //return $this->db->get_where($this->table_pemasukan, array('Tanggal' => $tgl))->result();
 	}
 	public function add_pemasukan($data) {
 		return $this->db->insert($this->table_pemasukan, $data);
@@ -51,9 +58,9 @@ class M_keuangan extends CI_Model {
     }
   }
   public function get_total_masuk_hari($tgl){
-    $this->db->select_sum('jumlah');
-    $query = $this->db->get_where($this->table_pemasukan, array('Tanggal' => $tgl))->result_array();
-    return $query[0]['jumlah'];
+    //$this->db->select_sum('jumlah');
+    //$query = $this->db->get_where($this->table_pemasukan, array('Tanggal' => $tgl))->result_array();
+    //return $query[0]['jumlah'];
   }
   public function get_total_keluar(){
     $tahun = date("Y");

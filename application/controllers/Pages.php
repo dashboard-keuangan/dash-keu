@@ -138,7 +138,8 @@ class Pages extends CI_Controller {
 			redirect('pages/pemasukan', 'refresh');
 		}
 		$tgl = date("Y-m-d");
-		$data['pemasukan'] = $this->m_keuangan->get_pemasukan($tgl);
+		//$data['pemasukan'] = $this->m_keuangan->get_pemasukan($tgl);
+		$data['pemasukan'] = $this->m_keuangan->get_histori_pembayaran();
 		$data['total'] = $this->m_keuangan->get_total_masuk_hari($tgl);
 		$this->load->view('pemasukan', $data);
 	}
