@@ -139,7 +139,8 @@ class Pages extends CI_Controller {
 		}
 		$tgl = date("Y-m-d");
 		//$data['pemasukan'] = $this->m_keuangan->get_pemasukan($tgl);
-		$data['pemasukan'] = $this->m_keuangan->get_histori_pembayaran();
+		$data['pilih_sekolah'] = $this->m_keuangan->get_sekolah();
+		//$data['pemasukan'] = $this->m_keuangan->get_histori_pembayaran();
 		$data['total'] = $this->m_keuangan->get_total_masuk_hari($tgl);
 		$this->load->view('pemasukan', $data);
 	}
@@ -233,5 +234,15 @@ class Pages extends CI_Controller {
     function detailharian_masuk($tanggal){
         $data=$this->m_keuangan->detailuhuy($tanggal);
         echo json_encode($data);
+    }
+
+    function show_all_data(){
+    	$data = $this->m_keuangan->get_siswa();
+    	echo json_encode($data);
+    }
+
+    function show_data_by_id($id_sekolah){
+    	$data = $this->m_keuangan->get_siswa_by_id_sekolah($id_sekolah);
+    	echo json_encode($data);
     }
 }

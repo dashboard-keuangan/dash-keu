@@ -4,7 +4,7 @@ class M_keuangan extends CI_Model {
   //private $table_pemasukan = 'tb_histori_pembayaran';
   //private $table_pengeluaran = 'pengeluaran';
   //private $table_rekap = 'rekapitulasi';
-  public function get_histori_pembayaran() {
+  public function get_all_histori_pembayaran() {
     $this->db->select('*');
     $this->db->from('tb_histori_pembayaran');
     $this->db->join('mst_tb_sekolah','tb_histori_pembayaran.id_sekolah = mst_tb_sekolah.id_sekolah');
@@ -14,6 +14,28 @@ class M_keuangan extends CI_Model {
     return $query->result();
     //return $this->db->get_where($this->table_pemasukan, array('Tanggal' => $tgl))->result();
 	}
+  public function get_siswa(){
+    $this->db->select('*');
+    $this->db->from('tb_siswa');
+    $this->db->order_by('nama_lengkap');
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+  public function get_siswa_by_id_sekolah($id_sekolah){
+    $this->db->select('*');
+    $this->db->from('tb_siswa');
+    $this->db->where('id_sekolah',$id_sekolah);
+    $this->db->order_by('nama_lengkap');
+    $query = $this->db->get();
+    return $query->result();
+  }
+  public function get_sekolah(){
+    $this->db->select('*');
+    $this->db->from('mst_tb_sekolah');
+    $query = $this->db->get();
+    return $query->result();
+  }
 	public function add_pemasukan($data) {
 		return $this->db->insert($this->table_pemasukan, $data);
   }

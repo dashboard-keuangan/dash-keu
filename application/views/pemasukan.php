@@ -103,44 +103,36 @@ to get the desired effect
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="tb_daftar_siswa" class="table table-bordered table-striped">
                     <thead>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <label class="input-group-text" for="inputGroupSelect01">Pilih Sekolah</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                          <option selected>Tampilkan semua</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
+                        <form>
+                          <select class="custom-select" id="pilih_sekolah" name='pilih_sekolah'>
+                          <option value="0">Tampilkan semua</option>
+                          <?php                                
+                              foreach ($pilih_sekolah as $row) {  
+                            echo "<option value='".$row->id_sekolah."'>".$row->nama_sekolah."</option>";
+                            }
+                            echo"
+                          </select>"
+                          ?>
+                        </form>
+                        
                       </div>
                       <tr>
                         <th>#</th>
                         <th>ID Siswa</th>
-                        <th>Nama Siswa</th>
-                        <th>ID Sekolah</th>
-                        <th>Tanggal</th>
-                        <th>No Kwitansi</th>
-                        <th>Jumlah</th>
-                        <th>Aksi</th>
+                        <th>NIK</th>
+                        <th>Nama Lengkap</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Detail</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <?php $num=1 ?>
-                      <?php foreach ($pemasukan as $row) { ?>
-                      <tr>
-                        <td><?=$num++?></td>
-                        <td><?=$row->id_siswa?></td>
-                        <td><?=$row->Nama_Lengkap?></td>
-                        <td><?=$row->id_sekolah?></td>
-                        <td><?=$row->Tanggal?></td>
-                        <td><?=$row->no_kwitansi?></td>
-                        <td><?="Rp. ".number_format($row->Jumlah).",-";?></td>
-                        <td class="text-center"><a class="btn btn-sm btn-warning" href="<?=base_url('pages/edit_data_masuk')?>/<?=$row->id;?>"><i class="fas fa-pencil-alt"></i></a> <a href="javascript:void(0)" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?=$row->id ?>"><i class="fas fa-trash-alt"></i></a></td>
-                      </tr>
-                      <?php } ?>
+                    <tbody id="tb_siswa">
+                      
                     </tbody>
                     <tr>
                       <td colspan="5" class="text-center text-bold">Total Pemasukan :</td>
@@ -247,22 +239,66 @@ to get the desired effect
 <!-- DataTables -->
 <script src="<?=base_url()?>assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?=base_url()?>assets/plugins/datatables/dataTables.bootstrap4.js"></script>
-
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#tb_daftar_siswa").DataTable();
   });
 </script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#modal_konfirmasi_hapus').on('show.bs.modal', function (e) {
-      var btn = $(e.relatedTarget);
-
-      var modal = $(this);
-      modal.find('.modal-title span.detail').text(`${btn.data('nama')}`);
-      modal.find('.modal-action').attr('href', `<?=base_url()?>pages/delete_masuk/${btn.data('id')}`);
-    });
-  })
+<script>
+  $(function(){
+    show_all_data();
+    //onchange function
+    $('#pilih_sekolah').change(function(){
+      var id_sekolah = $(this).val();
+      console.log(id_sekolah);
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url() ?>pages/show_data_by_id/'+id_sekolah,
+        dataType: 'json',
+        success: function(data){
+          var html = '';
+          var i;
+          for(i=0; i<data.length; i++){
+            html +='<tr>'+
+                        '<td>'+i+'</td>'+
+                        '<td>'+data[i].id_siswa+'</td>'+
+                        '<td>'+data[i].NIK+'</td>'+
+                        '<td>'+data[i].Nama_Lengkap+'</td>'+
+                        '<td>'+data[i].Jenis_Kelamin+'</td>'+
+                        '<td>'+'<button id="+data[i].id_siswa+" class="btn btn-success"><i class="fas fa-info-circle"></button></i>'+'</td>'+
+                  '</tr>';
+          }
+          $('#tb_siswa').html(html);
+        },
+      });
+    })
+    function show_all_data(){
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url() ?>pages/show_all_data',
+        dataType: 'json',
+        success: function(data){
+          console.log(data);
+          var html = '';
+          var i;
+          for(i=0; i<data.length; i++){
+            html +='<tr>'+
+                        '<td>'+i+'</td>'+
+                        '<td>'+data[i].id_siswa+'</td>'+
+                        '<td>'+data[i].NIK+'</td>'+
+                        '<td>'+data[i].Nama_Lengkap+'</td>'+
+                        '<td>'+data[i].Jenis_Kelamin+'</td>'+
+                        '<td>'+'<button id="+data[i].id_siswa+" class="btn btn-success"><i class="fas fa-info-circle"></button></i>'+'</td>'+
+                  '</tr>';
+          }
+          $('#tb_siswa').html(html);
+        },
+        error: function(){
+          alert('Gagal meload database');
+        }
+      });
+    }
+  });
 </script>
 
 </body>
