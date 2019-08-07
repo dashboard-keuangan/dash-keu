@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'dash_keu',
+	'hostname' => '35.186.147.192',
+	'username' => 'dashpro',
+	'password' => 'dashpro123',
+	'database' => 'db_dashboard',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
